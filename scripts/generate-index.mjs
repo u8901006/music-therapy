@@ -1,0 +1,192 @@
+#!/usr/bin/env node
+
+import { readdirSync, writeFileSync, existsSync } from 'node:fs';
+import { resolve } from 'node:path';
+
+const WEEKDAYS = ['日', '一', '二', '三', '四', '五', '六'];
+
+function getDateDisplay(filename) {
+  const dateStr = filename.replace('music-therapy-', '').replace('.html', '');
+  if (dateStr.length !== 10) return { display: dateStr, weekday: '' };
+  try {
+    const d = new Date(dateStr + 'T00:00:00+08:00');
+    const y = d.getFullYear();
+    const m = d.getMonth() + 1;
+    const day = d.getDate();
+    const wd = WEEKDAYS[d.getDay()];
+    return { display: `${y}年${m}月${day}日`, weekday: `週${wd}` };
+  } catch {
+    return { display: dateStr, weekday: '' };
+  }
+}
+
+function main() {
+  const docsDir = resolve(process.cwd(), 'docs');
+  if (!existsSync(docsDir)) {
+    console.error('[ERROR] docs/ directory not found');
+    process.exit(1);
+  }
+
+  const files = readdirSync(docsDir)
+    .filter(f => f.startsWith('music-therapy-') && f.endsWith('.html'))
+    .sort()
+    .reverse()
+    .slice(0, 30);
+
+  const total = files.length;
+
+  const links = files.map(f => {
+    const { display, weekday } = getDateDisplay(f);
+    return `<a href="${f}" class="report-link">
+      <span class="report-date">📅 ${display}（${weekday}）</span>
+    </a>`;
+  }).join('\n');
+
+  const html = `<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Music Therapy Research · 音樂治療研究文獻日報</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎵</text></svg>">
+<style>${CSS}</style>
+</head>
+<body>
+<div class="container">
+<h1>🎵 Music Therapy Research</h1>
+<h2>音樂治療研究文獻日報 · 每日自動更新</h2>
+<div class="divider"></div>
+<p class="meta">共 ${total} 期日報</p>
+<div class="report-list">
+${links}
+</div>
+<div class="footer">
+  <div class="footer-links">
+    <a href="https://www.leepsyclinic.com/" target="_blank" rel="noopener">🏥 李政洋身心診所首頁</a>
+    <a href="https://blog.leepsyclinic.com/" target="_blank" rel="noopener">📬 訂閱電子報</a>
+    <a href="https://buymeacoffee.com/CYlee" target="_blank" rel="noopener">☕ Buy Me a Coffee</a>
+  </div>
+  <p class="footer-info">Powered by PubMed + GLM-5-Turbo · <a href="https://github.com/u8901006/music-therapy">GitHub</a></p>
+</div>
+</div>
+</body>
+</html>`;
+
+  writeFileSync(resolve(docsDir, 'index.html'), html, 'utf-8');
+  console.error('[INFO] Index page generated');
+}
+
+const CSS = `
+:root {
+  --bg: #f6f1e8;
+  --surface: #fffaf2;
+  --line: #d8c5ab;
+  --text: #2b2118;
+  --muted: #766453;
+  --accent: #8c4f2b;
+  --accent-soft: #ead2bf;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "Noto Sans TC", "PingFang TC", "Helvetica Neue", Arial, sans-serif;
+  background: radial-gradient(circle at top, #fff6ea 0, var(--bg) 55%, #ead8c6 100%);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+.container {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 40px 20px 60px;
+}
+h1 {
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+}
+h2 {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--muted);
+  margin-top: 6px;
+}
+.divider {
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-soft), transparent);
+  border-radius: 2px;
+  margin: 16px 0 20px;
+}
+.meta {
+  font-size: 0.92rem;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+.report-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.report-link {
+  display: block;
+  text-decoration: none;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 14px 20px;
+  transition: background 0.15s, transform 0.15s, box-shadow 0.15s;
+}
+.report-link:hover {
+  background: var(--accent-soft);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(61,36,15,0.08);
+}
+.report-date {
+  font-size: 0.95rem;
+  color: var(--text);
+  font-weight: 500;
+}
+.footer {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 2px solid var(--line);
+  text-align: center;
+}
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.footer-links a {
+  display: inline-block;
+  font-size: 0.92rem;
+  color: var(--accent);
+  text-decoration: none;
+  padding: 8px 18px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  transition: background 0.15s, transform 0.15s;
+}
+.footer-links a:hover {
+  background: var(--accent-soft);
+  transform: translateY(-1px);
+}
+.footer-info {
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+.footer-info a { color: var(--accent); text-decoration: none; }
+.footer-info a:hover { text-decoration: underline; }
+@media (max-width: 600px) {
+  .container { padding: 20px 14px 40px; }
+  h1 { font-size: 1.3rem; }
+  .report-link { padding: 12px 14px; }
+  .footer-links { flex-direction: column; align-items: center; }
+}
+`;
+
+main();

@@ -1,0 +1,92 @@
+name: Music Therapy Daily Report
+
+on:
+  schedule:
+    - cron: "45 8 * * *"  # UTC 08:45 = GMT+8 16:45
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Target date (YYYY-MM-DD), leave empty for today"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5  # v4.3.1
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020  # v4.4.0
+        with:
+          node-version: "24"
+          cache: "npm"
+          cache-dependency-path: scripts/package.json
+
+      - name: Install dependencies
+        run: cd scripts && npm ci
+
+      - name: Determine date
+        id: date
+        run: |
+          if [ -n "${{ github.event.inputs.date }}" ]; then
+            echo "target=${{ github.event.inputs.date }}" >> $GITHUB_OUTPUT
+          else
+            TARGET=$(TZ=Asia/Taipei date +%Y-%m-%d)
+            echo "target=$TARGET" >> $GITHUB_OUTPUT
+          fi
+          echo "Date: $(cat $GITHUB_OUTPUT | grep target | cut -d= -f2)"
+
+      - name: Fetch papers from PubMed
+        run: node scripts/fetch-papers.mjs --days 7 --max-papers 40 --output papers.json
+        timeout-minutes: 8
+        continue-on-error: true
+
+      - name: Check papers data
+        id: papers
+        run: |
+          if [ -f papers.json ] && grep -q '"count"' papers.json; then
+            COUNT=$(node -e "const d=JSON.parse(require('fs').readFileSync('papers.json','utf8'));console.log(d.count)")
+            echo "count=$COUNT" >> $GITHUB_OUTPUT
+            echo "Papers found: $COUNT"
+          else
+            echo "count=0" >> $GITHUB_OUTPUT
+            echo '{"date":"'"${{ steps.date.outputs.target }}"'","count":0,"papers":[]}' > papers.json
+            echo "No papers found, will generate empty report"
+          fi
+
+      - name: Generate report with Zhipu AI
+        env:
+          ZHIPU_API_KEY: ${{ secrets.ZHIPU_API_KEY }}
+        run: |
+          node scripts/generate-report.mjs \
+            --input papers.json \
+            --output docs/music-therapy-${{ steps.date.outputs.target }}.html
+        timeout-minutes: 8
+
+      - name: Generate index page
+        run: node scripts/generate-index.mjs
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/
+          git diff --cached --quiet && echo "No changes to commit" && exit 0
+          git commit -m "🎵 music therapy daily report: ${{ steps.date.outputs.target }}"
+          git pull --rebase origin main
+          git push
+
+      - name: Summary
+        run: |
+          echo "### 🎵 Music Therapy Daily Report" >> $GITHUB_STEP_SUMMARY
+          echo "**Date:** ${{ steps.date.outputs.target }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Papers analyzed:** ${{ steps.papers.outputs.count }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Report:** [music-therapy-${{ steps.date.outputs.target }}.html](https://u8901006.github.io/music-therapy/music-therapy-${{ steps.date.outputs.target }}.html)" >> $GITHUB_STEP_SUMMARY
