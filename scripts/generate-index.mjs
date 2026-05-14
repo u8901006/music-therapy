@@ -9,11 +9,9 @@ function getDateDisplay(filename) {
   const dateStr = filename.replace('music-therapy-', '').replace('.html', '');
   if (dateStr.length !== 10) return { display: dateStr, weekday: '' };
   try {
-    const d = new Date(dateStr + 'T00:00:00+08:00');
-    const y = d.getFullYear();
-    const m = d.getMonth() + 1;
-    const day = d.getDate();
-    const wd = WEEKDAYS[d.getDay()];
+    const [y, m, day] = dateStr.split('-').map(Number);
+    const utcDate = new Date(Date.UTC(y, m - 1, day));
+    const wd = WEEKDAYS[utcDate.getUTCDay()];
     return { display: `${y}年${m}月${day}日`, weekday: `週${wd}` };
   } catch {
     return { display: dateStr, weekday: '' };
