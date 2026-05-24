@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Music Therapy Research · 音樂治療研究文獻日報 · 2026年5月24日</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎵</text></svg>">
+<style>
+:root {
+  --bg: #f6f1e8;
+  --surface: #fffaf2;
+  --line: #d8c5ab;
+  --text: #2b2118;
+  --muted: #766453;
+  --accent: #8c4f2b;
+  --accent-soft: #ead2bf;
+  --card-bg: #fffcf5;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "Noto Sans TC", "PingFang TC", "Helvetica Neue", Arial, sans-serif;
+  background: radial-gradient(circle at top, #fff6ea 0, var(--bg) 55%, #ead8c6 100%);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+.container {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 40px 20px 60px;
+}
+h1 {
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+}
+.divider {
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-soft), transparent);
+  border-radius: 2px;
+  margin: 12px 0 20px;
+}
+.meta {
+  font-size: 0.92rem;
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 36px 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--line);
+}
+.market-summary {
+  font-size: 1.02rem;
+  color: var(--text);
+  line-height: 1.8;
+  padding: 14px 18px;
+  background: var(--surface);
+  border-radius: 16px;
+  border: 1px solid var(--line);
+}
+.paper-card {
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 22px 26px 18px;
+  margin-bottom: 18px;
+  position: relative;
+  animation: fadeUp 0.4s ease both;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.paper-card:hover {
+  box-shadow: 0 6px 24px rgba(61,36,15,0.09);
+  transform: translateY(-2px);
+}
+.paper-card.top-pick {
+  border-left: 4px solid var(--accent);
+  background: linear-gradient(135deg, var(--card-bg) 0%, #fff8ee 100%);
+}
+.pick-rank {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--accent-soft);
+  line-height: 1;
+}
+.paper-emoji { font-size: 1.3rem; margin-right: 6px; }
+.utility-badge {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: 12px;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+.utility-high { background: #d4edda; color: #155724; }
+.utility-mid { background: #fff3cd; color: #856404; }
+.utility-low { background: #e2e3e5; color: #6c757d; }
+.paper-card h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 10px 0 6px;
+  color: var(--text);
+  line-height: 1.5;
+  padding-right: 48px;
+}
+.journal {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.summary {
+  font-size: 0.95rem;
+  color: var(--text);
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+.pico {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  background: var(--surface);
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin: 10px 0;
+  font-size: 0.88rem;
+  border: 1px solid var(--line);
+}
+.pico-item strong {
+  color: var(--accent);
+  margin-right: 4px;
+}
+.utility-reason {
+  font-size: 0.88rem;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 6px; }
+.tag {
+  display: inline-block;
+  font-size: 0.78rem;
+  background: var(--accent-soft);
+  color: var(--accent);
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-weight: 500;
+}
+.read-more {
+  display: inline-block;
+  font-size: 0.88rem;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  margin-top: 4px;
+  transition: color 0.15s;
+}
+.read-more:hover { text-decoration: underline; }
+.keywords { display: flex; flex-wrap: wrap; gap: 8px; }
+.keyword {
+  display: inline-block;
+  font-size: 0.82rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--text);
+  padding: 4px 14px;
+  border-radius: 20px;
+}
+.topic-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  gap: 10px;
+}
+.topic-label {
+  min-width: 100px;
+  font-size: 0.88rem;
+  text-align: right;
+  color: var(--text);
+}
+.topic-bar-bg {
+  flex: 1;
+  height: 18px;
+  background: var(--surface);
+  border-radius: 9px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+.topic-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-soft));
+  border-radius: 9px;
+  transition: width 0.5s ease;
+}
+.topic-count {
+  min-width: 28px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+.footer {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 2px solid var(--line);
+  text-align: center;
+}
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.footer-links a {
+  display: inline-block;
+  font-size: 0.92rem;
+  color: var(--accent);
+  text-decoration: none;
+  padding: 8px 18px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  transition: background 0.15s, transform 0.15s;
+}
+.footer-links a:hover {
+  background: var(--accent-soft);
+  transform: translateY(-1px);
+}
+.footer-info {
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+.footer-info a { color: var(--accent); text-decoration: none; }
+.footer-info a:hover { text-decoration: underline; }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 600px) {
+  .container { padding: 20px 14px 40px; }
+  h1 { font-size: 1.3rem; }
+  .paper-card { padding: 16px 16px 14px; border-radius: 18px; }
+  .paper-card h3 { font-size: 0.95rem; padding-right: 0; }
+  .pick-rank { font-size: 1.5rem; }
+  .pico { grid-template-columns: 1fr; }
+  .topic-label { min-width: 70px; font-size: 0.8rem; }
+  .footer-links { flex-direction: column; align-items: center; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>🎵 Music Therapy Research · 音樂治療研究文獻日報</h1>
+<div class="divider"></div>
+<div class="meta">📅 2026年5月24日 &nbsp;|&nbsp; 📊 40 篇文獻 &nbsp;|&nbsp; Powered by PubMed + GLM-5-Turbo</div>
+<h2>📋 今日文獻趨勢</h2>
+<p class="market-summary">今日文獻顯示，音樂治療在急性疼痛與焦慮的非藥物介入中持續展現穩定的實證基礎，特別是於術後及牙科門診情境；同時，大型網絡 Meta 分析確認了音樂治療在腫瘤安寧與焦慮症管理中的高效能排名，且機構嵌入（如梅約診所）的實務模式亦受關注。</p>
+<h2>⭐ 今日精選 TOP Picks</h2>
+<div class="paper-card top-pick">
+      <div class="pick-rank">#1</div>
+      <span class="paper-emoji">🦷</span>
+      <span class="utility-badge utility-high">高實用性</span>
+      <h3>芳香療法與音樂治療對下顎第三磨牙拔除患者焦慮、疼痛及生理參數的影響：隨機對照試驗</h3>
+      <p class="journal">The journal of evidence-based dental practice · EFFECT OF AROMATHERAPY AND MUSIC THERAPY ON PATIENTS ANXIETY, PAIN AND PHYSIOLOGIC PARAMETERS DURING EXTRACTION OF INCLUDED THIRD MOLARS: A RANDOMIZED CONTROLLED TRIAL.</p>
+      <p class="summary">在三臂隨機對照試驗中，音樂治療在降低拔牙患者焦慮方面效果最顯著，而芳香療法對生理參數（如血壓、心率）的穩定作用更佳，兩者皆能有效減少術後疼痛。</p>
+      <div class="pico">
+      <div class="pico-item"><strong>P</strong> 接受下顎第三磨牙拔除的患者 (N=279)</div>
+      <div class="pico-item"><strong>I</strong> 手術期間接受芳香療法或音樂治療</div>
+      <div class="pico-item"><strong>C</strong> 常規照護對照組</div>
+      <div class="pico-item"><strong>O</strong> 狀態焦慮與特質焦慮顯著降低，術後疼痛減輕，生理參數（心率、血壓、血氧）趨於穩定</div>
+    </div>
+      <p class="utility-reason">💡 門診牙科手術極度普遍，此研究提供具體且低成本的音樂與芳香療法實作指南，易於融入牙科診所常規流程。</p>
+      <div class="tags"><span class="tag">焦慮症</span><span class="tag">疼痛管理</span><span class="tag">接受式音樂治療</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">閱讀原文 →</a>
+    </div>
+<div class="paper-card top-pick">
+      <div class="pick-rank">#2</div>
+      <span class="paper-emoji">📱</span>
+      <span class="utility-badge utility-high">高實用性</span>
+      <h3>比較基於智慧型手機的音樂與影片分心技巧對選擇性手術患者術後疼痛的效果</h3>
+      <p class="journal">Pain management nursing : official journal of the American Society of Pain Management Nurses · Comparison of Smartphone-Based Music and Film Distraction Techniques on Postoperative Pain in Patients Undergoing Elective Surgery.</p>
+      <p class="summary">智慧型手機播放的音樂與影片分心技術均能顯著降低術後急性疼痛強度，兩者效果無顯著差異，且能減少術後24小時内的鎮痛藥物需求。</p>
+      <div class="pico">
+      <div class="pico-item"><strong>P</strong> 接受選擇性手術的成人患者 (N=100)</div>
+      <div class="pico-item"><strong>I</strong> 透過智慧型手機進行音樂或影片分心介入</div>
+      <div class="pico-item"><strong>C</strong> 音樂組 vs 影片組（雙臂主動對照）</div>
+      <div class="pico-item"><strong>O</strong> 視覺類比量表 (VAS) 疼痛分數顯著下降（中位數從6降至2），24小時內約3至4成患者未要求追加鎮痛藥</div>
+    </div>
+      <p class="utility-reason">💡 利用患者自帶的智慧型手機即可執行，無需額外設備，是極具性價比且易於推廣的術後護理輔助工具。</p>
+      <div class="tags"><span class="tag">疼痛管理</span><span class="tag">接受式音樂治療</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">閱讀原文 →</a>
+    </div>
+<div class="paper-card top-pick">
+      <div class="pick-rank">#3</div>
+      <span class="paper-emoji">🎓</span>
+      <span class="utility-badge utility-high">高實用性</span>
+      <h3>癌症患者憂鬱與焦慮症狀的心身療法：系統性文獻回顧與網絡 Meta 分析</h3>
+      <p class="journal">Current oncology reports · Mind-Body Therapies for Depression and Anxiety Symptoms in People with Cancer: A Systematic Review with Network Meta-Analysis.</p>
+      <p class="summary">涵蓋182項研究的網絡 Meta 分析顯示，在眾多心身療法中，音樂治療對緩解癌症患者焦慮症狀的效應量極大（SMD = -0.90），被列為最優先推薦的介入措施之一。</p>
+      <div class="pico">
+      <div class="pico-item"><strong>P</strong> 罹患癌症的成人患者 (N=16,835)</div>
+      <div class="pico-item"><strong>I</strong> 各類心身療法（含音樂治療、瑜伽、正念等）</div>
+      <div class="pico-item"><strong>C</strong> 常規照護</div>
+      <div class="pico-item"><strong>O</strong> 音樂治療在減輕焦慮症狀方面排名前段班（SMD = -0.90, p &lt; 0.001）</div>
+    </div>
+      <p class="utility-reason">💡 高層級證據（網絡 Meta 分析）直接确立音樂治療在腫瘤科焦慮管理的核心地位，強力支持跨團隊轉介。</p>
+      <div class="tags"><span class="tag">憂鬱症</span><span class="tag">焦慮症</span><span class="tag">生活品質</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">閱讀原文 →</a>
+    </div>
+<div class="paper-card top-pick">
+      <div class="pick-rank">#4</div>
+      <span class="paper-emoji">🗺️</span>
+      <span class="utility-badge utility-mid">中實用性</span>
+      <h3>頭頸癌護理中的創意與表達性療法：範圍審查與證據圖譜</h3>
+      <p class="journal">Seminars in oncology nursing · Creative and Expressive Therapies in Head and Neck Cancer Nursing: A Scoping Review and Evidence Map.</p>
+      <p class="summary">範圍審查指出，音樂為本的介入措施與短程書寫在頭頸癌患者中具高度可行性，能有效改善焦慮、睡眠、污名感與社會功能，建議腫瘤護理團隊將其嵌入放療與術後路徑。</p>
+      <div class="pico">
+      <div class="pico-item"><strong>P</strong> 頭頸癌患者</div>
+      <div class="pico-item"><strong>I</strong> 創意與表達性療法（含音樂介入、引導意象、書寫等）</div>
+      <div class="pico-item"><strong>C</strong> 無對照（範圍審查）</div>
+      <div class="pico-item"><strong>O</strong> 有效改善焦慮/痛苦、睡眠、情緒、社會功能與疲勞，且具臨床嵌入可行性</div>
+    </div>
+      <p class="utility-reason">💡 為腫瘤專科護理師提供了將音樂治療納入日常放療或隨訪流程的具體實作建議與篩檢指引。</p>
+      <div class="tags"><span class="tag">焦慮症</span><span class="tag">疼痛管理</span><span class="tag">生活品質</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">閱讀原文 →</a>
+    </div>
+<div class="paper-card top-pick">
+      <div class="pick-rank">#5</div>
+      <span class="paper-emoji">🌿</span>
+      <span class="utility-badge utility-mid">中實用性</span>
+      <h3>泰國傳統醫學為基礎的老年憂鬱症照護方案之方法學發展與驗證</h3>
+      <p class="journal">MethodsX · Methodological development and validation of the Thai traditional medicine-based depression care program for older adults.</p>
+      <p class="summary">開發並驗證了一套結合草藥蒸汽、接受式音樂治療（約60bpm慢板音樂）與薰衣草芳香按摩的七週整合性方案，初步顯示對社區老人憂鬱症狀與生活品質有潛在益處。</p>
+      <div class="pico">
+      <div class="pico-item"><strong>P</strong> 具中度憂鬱症狀的社區老年人 (N=32 準實驗階段)</div>
+      <div class="pico-item"><strong>I</strong> 為期七週的泰國傳統醫學整合方案（含接受式音樂治療）</div>
+      <div class="pico-item"><strong>C</strong> 準實驗對照設計</div>
+      <div class="pico-item"><strong>O</strong> 方案具高可行性（100%完成率），初步觀察到憂鬱症狀減輕與生活品質提升</div>
+    </div>
+      <p class="utility-reason">💡 展示了將音樂治療與在地文化傳統醫學（如泰醫）無縫結合的模式，適合推廣至社區老年照護機構。</p>
+      <div class="tags"><span class="tag">憂鬱症</span><span class="tag">老年照護</span><span class="tag">接受式音樂治療</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">閱讀原文 →</a>
+    </div>
+<div class="paper-card top-pick">
+      <div class="pick-rank">#6</div>
+      <span class="paper-emoji">🏥</span>
+      <span class="utility-badge utility-mid">中實用性</span>
+      <h3>在梅約診所將音樂嵌入照護</h3>
+      <p class="journal">Mayo Clinic proceedings. Innovations, quality &amp; outcomes · Embedding Music in Care at Mayo Clinic.</p>
+      <p class="summary">以梅約診所的人文醫學中心為例，探討如何透過與現有醫療結構對齊與流程優化，將音樂服務永續且深度地嵌入大型醫療機構的常規患者照護中。</p>
+      <div class="pico">
+      <div class="pico-item"><strong>P</strong> 大型醫學中心的患者</div>
+      <div class="pico-item"><strong>I</strong> 制度化的音樂服務提供</div>
+      <div class="pico-item"><strong>C</strong> 無對照（案例研究）</div>
+      <div class="pico-item"><strong>O</strong> 成功建立服務嵌入模式，但面臨資源限制與理想框架間的張力</div>
+    </div>
+      <p class="utility-reason">💡 為醫院行政與臨床管理者提供將音樂治療從「邊緣附加活動」轉化為「核心制度服務」的策略藍圖。</p>
+      <div class="tags"><span class="tag">社區音樂治療</span><span class="tag">生活品質</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">閱讀原文 →</a>
+    </div>
+<div class="paper-card top-pick">
+      <div class="pick-rank">#7</div>
+      <span class="paper-emoji">🧠</span>
+      <span class="utility-badge utility-low">低實用性</span>
+      <h3>護理人員主導的音樂治療用於中風後憂鬱症：區分文化理論基礎與治療機制</h3>
+      <p class="journal">Nursing &amp; health sciences · Nurse-Led Music Therapy for Post-Stroke Depression: Distinguishing Cultural Rationale From Therapeutic Mechanism.</p>
+      <p class="summary">（註：原文無摘要）探討由護理人員執行的音樂治療對中風後憂鬱症的應用，特別聚焦於如何釐清背後的文化脈絡因素與實際治療機制之間的差異。</p>
+      <div class="pico">
+      <div class="pico-item"><strong>P</strong> 中風後憂鬱症患者（推測）</div>
+      <div class="pico-item"><strong>I</strong> 護理人員主導的音樂治療</div>
+      <div class="pico-item"><strong>C</strong> 未詳（缺摘要）</div>
+      <div class="pico-item"><strong>O</strong> 未詳（缺摘要），預計為憂鬱症狀緩解與機制探討</div>
+    </div>
+      <p class="utility-reason">💡 雖主題切中腦中風復健痛點，但因缺乏摘要無法評估研究設計與結果強度，僅供追蹤參考。</p>
+      <div class="tags"><span class="tag">腦中風復健</span><span class="tag">憂鬱症</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">閱讀原文 →</a>
+    </div>
+<h2>📚 其他值得關注的文獻</h2>
+<div class="paper-card">
+      <span class="paper-emoji">📃</span>
+      <span class="utility-badge utility-low">低</span>
+      <h3>勘誤。</h3>
+      <p class="journal">Aging &amp; mental health</p>
+      <p class="summary">期刊勘誤聲明。</p>
+      <div class="tags"><span class="tag">神經科學</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">🏃</span>
+      <span class="utility-badge utility-low">低</span>
+      <h3>有氧運動對帕金森氏症腦部 MRI 測量指標的療效。</h3>
+      <p class="journal">Neurorehabilitation and neural repair</p>
+      <p class="summary">24週進階有氧運動未顯示神經保護效應（R2*未改變），但似乎能提升左旋多巴的藥物效能。</p>
+      <div class="tags"><span class="tag">帕金森氏症</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">🚶</span>
+      <span class="utility-badge utility-low">低</span>
+      <h3>中風後社區步行的重要影響因素：來自繪圖審查的見解。</h3>
+      <p class="journal">Neurorehabilitation and neural repair</p>
+      <p class="summary">步態耐力、平衡與步行表現是影響中風後社區步行最一致的身體因素，生物心理社會與環境因素則呈現混合證據。</p>
+      <div class="tags"><span class="tag">腦中風復健</span><span class="tag">社會參與</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">🧩</span>
+      <span class="utility-badge utility-low">低</span>
+      <h3>在失智症風險降低脈絡下，認知與社會活躍的意涵為何？整合性回顧。</h3>
+      <p class="journal">Aging &amp; mental health</p>
+      <p class="summary">現有測量過度依賴頻率與時長，忽略了新穎性、個人控制感與目的性等主觀屬性，建議發展更全面的評估工具。</p>
+      <div class="tags"><span class="tag">失智症</span><span class="tag">生活品質</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">👨‍👩‍👧</span>
+      <span class="utility-badge utility-low">低</span>
+      <h3>失智症中家庭復原力的生態與歷程理解：質性後設綜合。</h3>
+      <p class="journal">Journal of advanced nursing</p>
+      <p class="summary">家庭復原力是動態重構的過程，實務需提供以歷程為導向的縱向支持，政策應建立以家庭為單位的評估系統。</p>
+      <div class="tags"><span class="tag">失智症</span><span class="tag">照顧者支持</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">🇺🇸</span>
+      <span class="utility-badge utility-mid">中</span>
+      <h3>美國心理健康領域的藝術：奪回政策窗口。</h3>
+      <p class="journal">Arts &amp; health</p>
+      <p class="summary">面對美國心理健康危機，呼籲倡議者掌握現有政策窗口，利用藝術參與促進心理健康的實證基礎推動跨部門合作。</p>
+      <div class="tags"><span class="tag">情緒調節</span><span class="tag">生活品質</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">📝</span>
+      <span class="utility-badge utility-low">低</span>
+      <h3>自我與知情人對憂鬱症及日常功能的評估與 NIH Toolbox 認知測驗組合表現的關聯。</h3>
+      <p class="journal">Aging &amp; mental health</p>
+      <p class="summary">NIH Toolbox 認知測驗與自我報告的日常功能及憂鬱顯著相關，有助於早期識別病理性認知老化的風險。</p>
+      <div class="tags"><span class="tag">失智症</span><span class="tag">憂鬱症</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">📋</span>
+      <span class="utility-badge utility-low">低</span>
+      <h3>修訂版 CAHPS 安寧療護調查的發展。</h3>
+      <p class="journal">Journal of pain and symptom management</p>
+      <p class="summary">CMS 修訂了安寧療護調查，新增照護偏好與文化需求內容，同時簡化題目長度與複雜度。</p>
+      <div class="tags"><span class="tag">安寧緩和醫療</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">💪</span>
+      <span class="utility-badge utility-low">低</span>
+      <h3>頸脊髓損傷後上肢肌力恢復的個體化預測：簡易預後模型的開發與驗證。</h3>
+      <p class="journal">Neurorehabilitation and neural repair</p>
+      <p class="summary">僅依據 AIS 分級與早期上肢運動評分（UEMS），即可準確預測頸脊髓損傷後的個體化上肢肌力恢復軌跡。</p>
+      <div class="tags"><span class="tag">神經科學</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">🧬</span>
+      <span class="utility-badge utility-low">低</span>
+      <h3>超越線性轉錄本：環狀 RNA 作為人類痛覺受體中類鴉片誘發不適應的哨兵。</h3>
+      <p class="journal">Pain</p>
+      <p class="summary">（無摘要）探討環狀 RNA 在人類痛覺受體類鴉片誘發病變中的角色。</p>
+      <div class="tags"><span class="tag">疼痛管理</span><span class="tag">生理機制</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">📈</span>
+      <span class="utility-badge utility-low">低</span>
+      <h3>不同假設慢性疼痛機制的患者具有不同的皮層複雜性與同步性。</h3>
+      <p class="journal">Pain</p>
+      <p class="summary">基於機制的臨床分類（神經病變、傷害感受、疼痛可塑）確實在腦皮層震盪連結上呈現顯著不同的量化差異。</p>
+      <div class="tags"><span class="tag">疼痛管理</span><span class="tag">神經科學</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">💊</span>
+      <span class="utility-badge utility-low">低</span>
+      <h3>阿米替林治療麻風病患者神經病理性疼痛：雙中心隨機對照試驗。</h3>
+      <p class="journal">Pain</p>
+      <p class="summary">阿米替林作為添加療法，在緩解麻風病相關神經病理性疼痛上並未優於安慰劑。</p>
+      <div class="tags"><span class="tag">疼痛管理</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">🕊️</span>
+      <span class="utility-badge utility-low">低</span>
+      <h3>在美國伴隨安寧療護支持的自願停止進食與飲水 (VSED)：案例系列。</h3>
+      <p class="journal">Journal of pain and symptom management</p>
+      <p class="summary">所有啟動 VSED 的患者皆在約10天內死亡，症狀可透過常規安寧療護技術與藥物（如勞拉西泮）控制。</p>
+      <div class="tags"><span class="tag">安寧緩和醫療</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">💡</span>
+      <span class="utility-badge utility-low">低</span>
+      <h3>掌心中的閃爍：在 CAR-T 療法中守護生命最後微光的敘事反思。</h3>
+      <p class="journal">Journal of pain and symptom management</p>
+      <p class="summary">（無摘要）針對 CAR-T 療法過程中生命末期照護的敘事反思。</p>
+      <div class="tags"><span class="tag">安寧緩和醫療</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">📊</span>
+      <span class="utility-badge utility-low">低</span>
+      <h3>開發並初步驗證基於能力的整合腫瘤學訓練問卷。</h3>
+      <p class="journal">Journal of pain and symptom management</p>
+      <p class="summary">開發了評估醫療人員整合腫瘤學核心臨床能力的問卷（CCC-IO），顯示出高信度與建構效度。</p>
+      <div class="tags"><span class="tag">生活品質</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">🧘</span>
+      <span class="utility-badge utility-low">低</span>
+      <h3>正念老去：探討以中年期老化焦慮為目標的概念模型。</h3>
+      <p class="journal">Aging &amp; mental health</p>
+      <p class="summary">正念、自我照顧與自我同情透過顯著的間接效應與老化焦慮相關，可作為未來介入研究的潛在目標。</p>
+      <div class="tags"><span class="tag">焦慮症</span><span class="tag">老年照護</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">🐭</span>
+      <span class="utility-badge utility-low">低</span>
+      <h3>複雜性區域疼痛症候群小鼠模型中的行為特徵分析：區分鎮痛與藥物副作用。</h3>
+      <p class="journal">Pain</p>
+      <p class="summary">利用自動化行為分析工具證明右美托咪定的鎮痛與鎮靜作用可被有效區分，且受傷小鼠的鎮靜反應較弱。</p>
+      <div class="tags"><span class="tag">疼痛管理</span><span class="tag">生理機制</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">✉️</span>
+      <span class="utility-badge utility-low">低</span>
+      <h3>回覆 Alcántara Montero：邁向統一典範：慢性疼痛與功能性身體疾患。</h3>
+      <p class="journal">Pain</p>
+      <p class="summary">（無摘要）期刊回覆信件。</p>
+      <div class="tags"><span class="tag">疼痛管理</span><span class="tag">神經科學</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">🔗</span>
+      <span class="utility-badge utility-low">低</span>
+      <h3>邁向統一典範：慢性疼痛與功能性身體疾患。</h3>
+      <p class="journal">Pain</p>
+      <p class="summary">（無摘要）探討慢性疼痛與功能性身體疾患的統一概念架構。</p>
+      <div class="tags"><span class="tag">疼痛管理</span><span class="tag">神經科學</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">✉️</span>
+      <span class="utility-badge utility-low">低</span>
+      <h3>回覆 Shala：疼痛的時間預測性塑造運動系統抑制。</h3>
+      <p class="journal">Pain</p>
+      <p class="summary">（無摘要）期刊回覆信件。</p>
+      <div class="tags"><span class="tag">疼痛管理</span><span class="tag">神經科學</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">⏱️</span>
+      <span class="utility-badge utility-low">低</span>
+      <h3>疼痛的時間預測性塑造運動系統抑制。</h3>
+      <p class="journal">Pain</p>
+      <p class="summary">（無摘要）探討時間預測性如何影響面對疼痛時的運動系統抑制。</p>
+      <div class="tags"><span class="tag">疼痛管理</span><span class="tag">神經科學</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">✉️</span>
+      <span class="utility-badge utility-low">低</span>
+      <h3>關於定量感覺測試在疼痛可塑中價值的討論延續：對兩封信件的回覆。</h3>
+      <p class="journal">Pain</p>
+      <p class="summary">（無摘要）期刊回覆信件。</p>
+      <div class="tags"><span class="tag">疼痛管理</span><span class="tag">神經科學</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">✉️</span>
+      <span class="utility-badge utility-low">低</span>
+      <h3>回覆 Geber 和 Birklein：從機制觀點看多發性神經病變中的偏移鎮痛與空間總和。</h3>
+      <p class="journal">Pain</p>
+      <p class="summary">（無摘要）期刊回覆信件。</p>
+      <div class="tags"><span class="tag">疼痛管理</span><span class="tag">神經科學</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">✉️</span>
+      <span class="utility-badge utility-low">低</span>
+      <h3>Adamczyk 等人「破壞的空間而非時間面向決定疼痛性多發性神經病變」—對時間對比偵測、刺激位置與病因的考量。</h3>
+      <p class="journal">Pain</p>
+      <p class="summary">（無摘要）期刊回覆信件。</p>
+      <div class="tags"><span class="tag">疼痛管理</span><span class="tag">神經科學</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">✉️</span>
+      <span class="utility-badge utility-low">低</span>
+      <h3>回覆 Alcántara Montero。</h3>
+      <p class="journal">Pain</p>
+      <p class="summary">（無摘要）期刊回覆信件。</p>
+      <div class="tags"><span class="tag">疼痛管理</span><span class="tag">神經科學</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">🧠</span>
+      <span class="utility-badge utility-low">低</span>
+      <h3>三叉神經病理性疼痛中的丘腦皮層迴路：從實驗到臨床實踐。</h3>
+      <p class="journal">Pain</p>
+      <p class="summary">（無摘要）探討三叉神經痛的丘腦皮層迴路機制。</p>
+      <div class="tags"><span class="tag">疼痛管理</span><span class="tag">生理機制</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">〰️</span>
+      <span class="utility-badge utility-low">低</span>
+      <h3>人類類鴉片鎮痛是由邊緣系統區域的 beta 與高頻 gamma 調控所介導的。</h3>
+      <p class="journal">Pain</p>
+      <p class="summary">透過顱內電極記錄發現，芬太尼等類鴉片藥物透過抑制前額葉 beta 震盪與島葉高頻 gamma 活動來產生鎮痛效果。</p>
+      <div class="tags"><span class="tag">疼痛管理</span><span class="tag">生理機制</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">📉</span>
+      <span class="utility-badge utility-mid">中</span>
+      <h3>兩種行為介入措施對慢性疼痛高劑量類鴉片患者自願減量的效果。</h3>
+      <p class="journal">Pain</p>
+      <p class="summary">動機式訪談合併認知行為療法（MI+CBT）與共同決策（SDM）均能有效幫助高劑量（≥90 MME）類鴉片患者減少用藥，但對低劑量者無效。</p>
+      <div class="tags"><span class="tag">疼痛管理</span><span class="tag">成癮治療</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">📍</span>
+      <span class="utility-badge utility-low">低</span>
+      <h3>定義「區域」疼痛。</h3>
+      <p class="journal">Pain</p>
+      <p class="summary">（無摘要）探討區域疼痛的定義。</p>
+      <div class="tags"><span class="tag">疼痛管理</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">😴</span>
+      <span class="utility-badge utility-low">低</span>
+      <h3>麻木還是打瞌睡？用自動化行為分析解碼鎮痛與鎮靜。</h3>
+      <p class="journal">Pain</p>
+      <p class="summary">（無摘要）探討如何以自動化行為分析區分鎮痛與鎮靜效果。</p>
+      <div class="tags"><span class="tag">疼痛管理</span><span class="tag">神經科學</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">🖼️</span>
+      <span class="utility-badge utility-low">低</span>
+      <h3>在疼痛實踐與科學中應用疼痛圖像：新機遇與新方向。</h3>
+      <p class="journal">Pain</p>
+      <p class="summary">（無摘要）探討疼痛影像在臨床與科研中的應用。</p>
+      <div class="tags"><span class="tag">疼痛管理</span><span class="tag">情緒調節</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">📸</span>
+      <span class="utility-badge utility-low">低</span>
+      <h3>遇見疼痛：圖像作為疼痛醫學協作方法的工具。</h3>
+      <p class="journal">Pain</p>
+      <p class="summary">視覺藝術（攝影）能作為慢性疼痛的評估與溝通工具，幫助患者重獲疾病經驗的所有權並促進醫病共享決策。</p>
+      <div class="tags"><span class="tag">疼痛管理</span><span class="tag">情緒調節</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">🌍</span>
+      <span class="utility-badge utility-low">低</span>
+      <h3>透過遷移與強加社會政治創傷的視角理解兒科慢性疼痛：主題回顧。</h3>
+      <p class="journal">Pain</p>
+      <p class="summary">（無摘要）從遷移與社會政治創傷角度探討兒科慢性疼痛。</p>
+      <div class="tags"><span class="tag">兒少治療</span><span class="tag">疼痛管理</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<h2>📊 主題分布</h2>
+<div class="topic-row">
+      <span class="topic-label">疼痛管理</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:100%"></div></div>
+      <span class="topic-count">18</span>
+    </div>
+<div class="topic-row">
+      <span class="topic-label">焦慮症</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:22%"></div></div>
+      <span class="topic-count">4</span>
+    </div>
+<div class="topic-row">
+      <span class="topic-label">憂鬱症</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:22%"></div></div>
+      <span class="topic-count">4</span>
+    </div>
+<div class="topic-row">
+      <span class="topic-label">神經科學</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:50%"></div></div>
+      <span class="topic-count">9</span>
+    </div>
+<div class="topic-row">
+      <span class="topic-label">安寧緩和醫療</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:17%"></div></div>
+      <span class="topic-count">3</span>
+    </div>
+<div class="topic-row">
+      <span class="topic-label">失智症</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:11%"></div></div>
+      <span class="topic-count">2</span>
+    </div>
+<div class="topic-row">
+      <span class="topic-label">老年照護</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:11%"></div></div>
+      <span class="topic-count">2</span>
+    </div>
+<div class="topic-row">
+      <span class="topic-label">腦中風復健</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:11%"></div></div>
+      <span class="topic-count">2</span>
+    </div>
+<div class="topic-row">
+      <span class="topic-label">生活品質</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:22%"></div></div>
+      <span class="topic-count">4</span>
+    </div>
+<div class="topic-row">
+      <span class="topic-label">情緒調節</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:11%"></div></div>
+      <span class="topic-count">2</span>
+    </div>
+<div class="topic-row">
+      <span class="topic-label">成癮治療</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:6%"></div></div>
+      <span class="topic-count">1</span>
+    </div>
+<div class="topic-row">
+      <span class="topic-label">兒少治療</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:6%"></div></div>
+      <span class="topic-count">1</span>
+    </div>
+<div class="topic-row">
+      <span class="topic-label">生理機制</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:17%"></div></div>
+      <span class="topic-count">3</span>
+    </div>
+<div class="topic-row">
+      <span class="topic-label">社會參與</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:6%"></div></div>
+      <span class="topic-count">1</span>
+    </div>
+<div class="topic-row">
+      <span class="topic-label">照顧者支持</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:6%"></div></div>
+      <span class="topic-count">1</span>
+    </div>
+<div class="topic-row">
+      <span class="topic-label">帕金森氏症</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:6%"></div></div>
+      <span class="topic-count">1</span>
+    </div>
+<div class="topic-row">
+      <span class="topic-label">社區音樂治療</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:6%"></div></div>
+      <span class="topic-count">1</span>
+    </div>
+<div class="topic-row">
+      <span class="topic-label">接受式音樂治療</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:17%"></div></div>
+      <span class="topic-count">3</span>
+    </div>
+<h2>🏷️ 關鍵字</h2>
+<div class="keywords"><span class="keyword">術後疼痛</span><span class="keyword">非藥物介入</span><span class="keyword">腫瘤學</span><span class="keyword">網絡 Meta 分析</span><span class="keyword">機構嵌入</span><span class="keyword">整合醫學</span></div>
+<div class="footer">
+  <div class="footer-links">
+    <a href="https://www.leepsyclinic.com/" target="_blank" rel="noopener">🏥 李政洋身心診所首頁</a>
+    <a href="https://blog.leepsyclinic.com/" target="_blank" rel="noopener">📬 訂閱電子報</a>
+    <a href="https://buymeacoffee.com/CYlee" target="_blank" rel="noopener">☕ Buy Me a Coffee</a>
+  </div>
+  <p class="footer-info">資料來源：PubMed · 分析模型：GLM-5-Turbo · <a href="https://github.com/u8901006/music-therapy">GitHub</a></p>
+</div>
+</div>
+</body>
+</html>
