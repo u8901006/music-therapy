@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Music Therapy Research · 音樂治療研究文獻日報 · 2026年5月28日</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎵</text></svg>">
+<style>
+:root {
+  --bg: #f6f1e8;
+  --surface: #fffaf2;
+  --line: #d8c5ab;
+  --text: #2b2118;
+  --muted: #766453;
+  --accent: #8c4f2b;
+  --accent-soft: #ead2bf;
+  --card-bg: #fffcf5;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "Noto Sans TC", "PingFang TC", "Helvetica Neue", Arial, sans-serif;
+  background: radial-gradient(circle at top, #fff6ea 0, var(--bg) 55%, #ead8c6 100%);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+.container {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 40px 20px 60px;
+}
+h1 {
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+}
+.divider {
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-soft), transparent);
+  border-radius: 2px;
+  margin: 12px 0 20px;
+}
+.meta {
+  font-size: 0.92rem;
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 36px 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--line);
+}
+.market-summary {
+  font-size: 1.02rem;
+  color: var(--text);
+  line-height: 1.8;
+  padding: 14px 18px;
+  background: var(--surface);
+  border-radius: 16px;
+  border: 1px solid var(--line);
+}
+.paper-card {
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 22px 26px 18px;
+  margin-bottom: 18px;
+  position: relative;
+  animation: fadeUp 0.4s ease both;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.paper-card:hover {
+  box-shadow: 0 6px 24px rgba(61,36,15,0.09);
+  transform: translateY(-2px);
+}
+.paper-card.top-pick {
+  border-left: 4px solid var(--accent);
+  background: linear-gradient(135deg, var(--card-bg) 0%, #fff8ee 100%);
+}
+.pick-rank {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--accent-soft);
+  line-height: 1;
+}
+.paper-emoji { font-size: 1.3rem; margin-right: 6px; }
+.utility-badge {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: 12px;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+.utility-high { background: #d4edda; color: #155724; }
+.utility-mid { background: #fff3cd; color: #856404; }
+.utility-low { background: #e2e3e5; color: #6c757d; }
+.paper-card h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 10px 0 6px;
+  color: var(--text);
+  line-height: 1.5;
+  padding-right: 48px;
+}
+.journal {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.summary {
+  font-size: 0.95rem;
+  color: var(--text);
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+.pico {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  background: var(--surface);
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin: 10px 0;
+  font-size: 0.88rem;
+  border: 1px solid var(--line);
+}
+.pico-item strong {
+  color: var(--accent);
+  margin-right: 4px;
+}
+.utility-reason {
+  font-size: 0.88rem;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 6px; }
+.tag {
+  display: inline-block;
+  font-size: 0.78rem;
+  background: var(--accent-soft);
+  color: var(--accent);
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-weight: 500;
+}
+.read-more {
+  display: inline-block;
+  font-size: 0.88rem;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  margin-top: 4px;
+  transition: color 0.15s;
+}
+.read-more:hover { text-decoration: underline; }
+.keywords { display: flex; flex-wrap: wrap; gap: 8px; }
+.keyword {
+  display: inline-block;
+  font-size: 0.82rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--text);
+  padding: 4px 14px;
+  border-radius: 20px;
+}
+.topic-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  gap: 10px;
+}
+.topic-label {
+  min-width: 100px;
+  font-size: 0.88rem;
+  text-align: right;
+  color: var(--text);
+}
+.topic-bar-bg {
+  flex: 1;
+  height: 18px;
+  background: var(--surface);
+  border-radius: 9px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+.topic-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-soft));
+  border-radius: 9px;
+  transition: width 0.5s ease;
+}
+.topic-count {
+  min-width: 28px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+.footer {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 2px solid var(--line);
+  text-align: center;
+}
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.footer-links a {
+  display: inline-block;
+  font-size: 0.92rem;
+  color: var(--accent);
+  text-decoration: none;
+  padding: 8px 18px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  transition: background 0.15s, transform 0.15s;
+}
+.footer-links a:hover {
+  background: var(--accent-soft);
+  transform: translateY(-1px);
+}
+.footer-info {
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+.footer-info a { color: var(--accent); text-decoration: none; }
+.footer-info a:hover { text-decoration: underline; }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 600px) {
+  .container { padding: 20px 14px 40px; }
+  h1 { font-size: 1.3rem; }
+  .paper-card { padding: 16px 16px 14px; border-radius: 18px; }
+  .paper-card h3 { font-size: 0.95rem; padding-right: 0; }
+  .pick-rank { font-size: 1.5rem; }
+  .pico { grid-template-columns: 1fr; }
+  .topic-label { min-width: 70px; font-size: 0.8rem; }
+  .footer-links { flex-direction: column; align-items: center; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>🎵 Music Therapy Research · 音樂治療研究文獻日報</h1>
+<div class="divider"></div>
+<div class="meta">📅 2026年5月28日 &nbsp;|&nbsp; 📊 6 篇文獻 &nbsp;|&nbsp; Powered by PubMed + GLM-5-Turbo</div>
+<h2>📋 今日文獻趨勢</h2>
+<p class="market-summary">今日文獻顯示音樂治療在急性疼痛與焦慮管理上展現強大的非藥物介入潛力，同時在大型醫療機構的建制化落地與跨文化整合（如中醫五音療法、泰國傳統醫學）方面，提供了高價值的實務發展藍圖。</p>
+<h2>⭐ 今日精選 TOP Picks</h2>
+<div class="paper-card top-pick">
+      <div class="pick-rank">#1</div>
+      <span class="paper-emoji">🦷</span>
+      <span class="utility-badge utility-high">高實用性</span>
+      <h3>芳香療法與音樂治療對下顎第三磨牙拔除患者焦慮、疼痛及生理參數的影響：隨機對照試驗</h3>
+      <p class="journal">The journal of evidence-based dental practice · EFFECT OF AROMATHERAPY AND MUSIC THERAPY ON PATIENTS ANXIETY, PAIN AND PHYSIOLOGIC PARAMETERS DURING EXTRACTION OF INCLUDED THIRD MOLARS: A RANDOMIZED CONTROLLED TRIAL.</p>
+      <p class="summary">音樂治療能顯著降低拔牙手術中的焦慮與術後疼痛，且在減輕焦慮方面優於芳香療法，為牙科門診提供了一項高可行性的非藥物輔助療法。</p>
+      <div class="pico">
+      <div class="pico-item"><strong>P</strong> 接受下顎第三磨牙拔除的患者（279人）</div>
+      <div class="pico-item"><strong>I</strong> 手術期間接受音樂治療</div>
+      <div class="pico-item"><strong>C</strong> 芳香療法組與常規對照組</div>
+      <div class="pico-item"><strong>O</strong> 音樂組總焦慮分數顯著下降6.01分（效果量r=0.52），術後疼痛顯著低於對照組，且生命徵象更趨穩定。</div>
+    </div>
+      <p class="utility-reason">💡 牙科門診極易實施，成本極低且能有效降低患者的鎮靜或止痛藥物需求。</p>
+      <div class="tags"><span class="tag">疼痛管理</span><span class="tag">焦慮症</span><span class="tag">接受式音樂治療</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">閱讀原文 →</a>
+    </div>
+<div class="paper-card top-pick">
+      <div class="pick-rank">#2</div>
+      <span class="paper-emoji">📱</span>
+      <span class="utility-badge utility-high">高實用性</span>
+      <h3>比較智慧型手機音樂與影片分散注意力技術對選擇性手術患者術後疼痛的效果</h3>
+      <p class="journal">Pain management nursing : official journal of the American Society of Pain Management Nurses · Comparison of Smartphone-Based Music and Film Distraction Techniques on Postoperative Pain in Patients Undergoing Elective Surgery.</p>
+      <p class="summary">利用智慧型手機播放音樂能有效降低術後急性疼痛，效果與影片相當，顯示個人化隨身裝置是術後疼痛護理極為實用的輔助工具。</p>
+      <div class="pico">
+      <div class="pico-item"><strong>P</strong> 接受選擇性手術的成年患者（100人）</div>
+      <div class="pico-item"><strong>I</strong> 術後使用智慧型手機播放音樂進行分散注意力</div>
+      <div class="pico-item"><strong>C</strong> 智慧型手機播放影片分散注意力</div>
+      <div class="pico-item"><strong>O</strong> 兩組疼痛VAS分數皆從中位數6顯著降至2，音樂組有32.7%的患者在24小時內未要求使用止痛藥。</div>
+    </div>
+      <p class="utility-reason">💡 利用患者自帶的智慧型手機即可執行，無需醫院添購設備，極度適合資源有限的病房推廣。</p>
+      <div class="tags"><span class="tag">疼痛管理</span><span class="tag">接受式音樂治療</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">閱讀原文 →</a>
+    </div>
+<div class="paper-card top-pick">
+      <div class="pick-rank">#3</div>
+      <span class="paper-emoji">🏥</span>
+      <span class="utility-badge utility-mid">中實用性</span>
+      <h3>將音樂嵌入梅約診所的醫療照護體系</h3>
+      <p class="journal">Mayo Clinic proceedings. Innovations, quality &amp; outcomes · Embedding Music in Care at Mayo Clinic.</p>
+      <p class="summary">梅約診所的案例研究展示如何透過與現有醫療結構對齊與流程優化，將音樂服務深層嵌入大型醫療機構，為其他醫院推動藝術於健康領域的永續發展提供實務藍圖。</p>
+      <div class="pico">
+      <div class="pico-item"><strong>P</strong> 大型醫療機構（梅約診所）的住院與門診患者</div>
+      <div class="pico-item"><strong>I</strong> 由人文醫學中心提供的系統性音樂服務嵌入計畫</div>
+      <div class="pico-item"><strong>C</strong> 無對照組（制度性案例研究）</div>
+      <div class="pico-item"><strong>O</strong> 成功將音樂服務整合入機構結構中，提升了服務的永續性，但同時凸顯了資源限制帶來的挑戰。</div>
+    </div>
+      <p class="utility-reason">💡 提供醫院高階管理與制度設計的寶貴參考，有助於推動音樂治療的常態化，但非直接的临床介入指引。</p>
+      <div class="tags"><span class="tag">生活品質</span><span class="tag">社區音樂治療</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">閱讀原文 →</a>
+    </div>
+<h2>📚 其他值得關注的文獻</h2>
+<div class="paper-card">
+      <span class="paper-emoji">🧠</span>
+      <span class="utility-badge utility-mid">中</span>
+      <h3>中醫非藥物介入措施改善阿茲海默症患者認知障礙的證據總結</h3>
+      <p class="journal">Geriatric nursing (New York, N.Y.)</p>
+      <p class="summary">系統性文獻回顧指出，包含「五音療法」在內的中醫非藥物介入對阿茲海默症認知功能具科學依據，為失智症音樂治療提供了跨文化的實證支持。</p>
+      <div class="tags"><span class="tag">失智症</span><span class="tag">接受式音樂治療</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">🌿</span>
+      <span class="utility-badge utility-mid">中</span>
+      <h3>泰國傳統醫學為基礎的老年憂鬱症照護方案之方法學發展與驗證</h3>
+      <p class="journal">MethodsX</p>
+      <p class="summary">該7週方案結合草藥蒸氣、薰衣草按摩與接受式音樂治療（慢節奏約60bpm），已通過專家效度與可行性測試，為老年憂鬱症提供了結構化的整合性音樂治療原型。</p>
+      <div class="tags"><span class="tag">憂鬱症</span><span class="tag">接受式音樂治療</span><span class="tag">老年照護</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">🧑‍⚕️</span>
+      <span class="utility-badge utility-low">低</span>
+      <h3>護理人員主導之音樂治療對腦中風後憂鬱症的影響：區分文化理由與治療機制</h3>
+      <p class="journal">Nursing &amp; health sciences</p>
+      <p class="summary">探討護理人員執行音樂治療於腦中風後憂鬱症的療效，並試圖釐清文化背景與實際治療機制在其中的不同角色（目前僅有標題公開）。</p>
+      <div class="tags"><span class="tag">腦中風復健</span><span class="tag">憂鬱症</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<h2>📊 主題分布</h2>
+<div class="topic-row">
+      <span class="topic-label">疼痛管理</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:100%"></div></div>
+      <span class="topic-count">2</span>
+    </div>
+<div class="topic-row">
+      <span class="topic-label">失智症</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:50%"></div></div>
+      <span class="topic-count">1</span>
+    </div>
+<div class="topic-row">
+      <span class="topic-label">憂鬱症</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:100%"></div></div>
+      <span class="topic-count">2</span>
+    </div>
+<div class="topic-row">
+      <span class="topic-label">焦慮症</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:50%"></div></div>
+      <span class="topic-count">1</span>
+    </div>
+<div class="topic-row">
+      <span class="topic-label">老年照護</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:50%"></div></div>
+      <span class="topic-count">1</span>
+    </div>
+<div class="topic-row">
+      <span class="topic-label">腦中風復健</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:50%"></div></div>
+      <span class="topic-count">1</span>
+    </div>
+<h2>🏷️ 關鍵字</h2>
+<div class="keywords"><span class="keyword">術後疼痛</span><span class="keyword">非藥物介入</span><span class="keyword">五音療法</span><span class="keyword">機構嵌入</span><span class="keyword">接受式音樂治療</span><span class="keyword">智慧型手機</span></div>
+<div class="footer">
+  <div class="footer-links">
+    <a href="https://www.leepsyclinic.com/" target="_blank" rel="noopener">🏥 李政洋身心診所首頁</a>
+    <a href="https://blog.leepsyclinic.com/" target="_blank" rel="noopener">📬 訂閱電子報</a>
+    <a href="https://buymeacoffee.com/CYlee" target="_blank" rel="noopener">☕ Buy Me a Coffee</a>
+  </div>
+  <p class="footer-info">資料來源：PubMed · 分析模型：GLM-5-Turbo · <a href="https://github.com/u8901006/music-therapy">GitHub</a></p>
+</div>
+</div>
+</body>
+</html>
