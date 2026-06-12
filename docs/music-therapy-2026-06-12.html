@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Music Therapy Research · 音樂治療研究文獻日報 · 2026年6月12日</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎵</text></svg>">
+<style>
+:root {
+  --bg: #f6f1e8;
+  --surface: #fffaf2;
+  --line: #d8c5ab;
+  --text: #2b2118;
+  --muted: #766453;
+  --accent: #8c4f2b;
+  --accent-soft: #ead2bf;
+  --card-bg: #fffcf5;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "Noto Sans TC", "PingFang TC", "Helvetica Neue", Arial, sans-serif;
+  background: radial-gradient(circle at top, #fff6ea 0, var(--bg) 55%, #ead8c6 100%);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+.container {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 40px 20px 60px;
+}
+h1 {
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+}
+.divider {
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-soft), transparent);
+  border-radius: 2px;
+  margin: 12px 0 20px;
+}
+.meta {
+  font-size: 0.92rem;
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 36px 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--line);
+}
+.market-summary {
+  font-size: 1.02rem;
+  color: var(--text);
+  line-height: 1.8;
+  padding: 14px 18px;
+  background: var(--surface);
+  border-radius: 16px;
+  border: 1px solid var(--line);
+}
+.paper-card {
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 22px 26px 18px;
+  margin-bottom: 18px;
+  position: relative;
+  animation: fadeUp 0.4s ease both;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.paper-card:hover {
+  box-shadow: 0 6px 24px rgba(61,36,15,0.09);
+  transform: translateY(-2px);
+}
+.paper-card.top-pick {
+  border-left: 4px solid var(--accent);
+  background: linear-gradient(135deg, var(--card-bg) 0%, #fff8ee 100%);
+}
+.pick-rank {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--accent-soft);
+  line-height: 1;
+}
+.paper-emoji { font-size: 1.3rem; margin-right: 6px; }
+.utility-badge {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: 12px;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+.utility-high { background: #d4edda; color: #155724; }
+.utility-mid { background: #fff3cd; color: #856404; }
+.utility-low { background: #e2e3e5; color: #6c757d; }
+.paper-card h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 10px 0 6px;
+  color: var(--text);
+  line-height: 1.5;
+  padding-right: 48px;
+}
+.journal {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.summary {
+  font-size: 0.95rem;
+  color: var(--text);
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+.pico {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  background: var(--surface);
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin: 10px 0;
+  font-size: 0.88rem;
+  border: 1px solid var(--line);
+}
+.pico-item strong {
+  color: var(--accent);
+  margin-right: 4px;
+}
+.utility-reason {
+  font-size: 0.88rem;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 6px; }
+.tag {
+  display: inline-block;
+  font-size: 0.78rem;
+  background: var(--accent-soft);
+  color: var(--accent);
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-weight: 500;
+}
+.read-more {
+  display: inline-block;
+  font-size: 0.88rem;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  margin-top: 4px;
+  transition: color 0.15s;
+}
+.read-more:hover { text-decoration: underline; }
+.keywords { display: flex; flex-wrap: wrap; gap: 8px; }
+.keyword {
+  display: inline-block;
+  font-size: 0.82rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--text);
+  padding: 4px 14px;
+  border-radius: 20px;
+}
+.topic-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  gap: 10px;
+}
+.topic-label {
+  min-width: 100px;
+  font-size: 0.88rem;
+  text-align: right;
+  color: var(--text);
+}
+.topic-bar-bg {
+  flex: 1;
+  height: 18px;
+  background: var(--surface);
+  border-radius: 9px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+.topic-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-soft));
+  border-radius: 9px;
+  transition: width 0.5s ease;
+}
+.topic-count {
+  min-width: 28px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+.footer {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 2px solid var(--line);
+  text-align: center;
+}
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.footer-links a {
+  display: inline-block;
+  font-size: 0.92rem;
+  color: var(--accent);
+  text-decoration: none;
+  padding: 8px 18px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  transition: background 0.15s, transform 0.15s;
+}
+.footer-links a:hover {
+  background: var(--accent-soft);
+  transform: translateY(-1px);
+}
+.footer-info {
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+.footer-info a { color: var(--accent); text-decoration: none; }
+.footer-info a:hover { text-decoration: underline; }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 600px) {
+  .container { padding: 20px 14px 40px; }
+  h1 { font-size: 1.3rem; }
+  .paper-card { padding: 16px 16px 14px; border-radius: 18px; }
+  .paper-card h3 { font-size: 0.95rem; padding-right: 0; }
+  .pick-rank { font-size: 1.5rem; }
+  .pico { grid-template-columns: 1fr; }
+  .topic-label { min-width: 70px; font-size: 0.8rem; }
+  .footer-links { flex-direction: column; align-items: center; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>🎵 Music Therapy Research · 音樂治療研究文獻日報</h1>
+<div class="divider"></div>
+<div class="meta">📅 2026年6月12日 &nbsp;|&nbsp; 📊 8 篇文獻 &nbsp;|&nbsp; Powered by PubMed + GLM-5-Turbo</div>
+<h2>📋 今日文獻趨勢</h2>
+<p class="market-summary">今日文獻呈現音樂治療在臨床多樣情境的應用，特別是在疼痛管理（產程、手術、幼兒注射）與焦慮緩解方面有新的隨機對照試驗證據。值得注意的是，失智症的大型網狀 Meta 分析比較了不同休閒治療的效果，而針對腫瘤科住院病患的劑量回顧研究則挑戰了「次數越多效果越好」的常見假設。</p>
+<h2>⭐ 今日精選 TOP Picks</h2>
+<div class="paper-card top-pick">
+      <div class="pick-rank">#1</div>
+      <span class="paper-emoji">🧠</span>
+      <span class="utility-badge utility-high">高實用性</span>
+      <h3>比較休閒治療對輕度認知障礙與失智症患者認知、神經精神症狀及心理社會成效的影響：網狀 Meta 分析</h3>
+      <p class="journal">International journal of nursing studies · Comparative effectiveness of recreational therapies on cognition, neuropsychiatric symptoms, and psychosocial outcomes in individuals with mild cognitive impairment and dementia: A network meta-analysis.</p>
+      <p class="summary">涵蓋 71 項 RCT 的大型分析顯示，遊戲治療對整體認知提升最顯著，音樂治療在延遲記憶、焦慮與憂鬱改善方面表現優異，為臨床選擇介入方式提供了重要依據。</p>
+      <div class="pico">
+      <div class="pico-item"><strong>P</strong> 輕度認知障礙與失智症患者</div>
+      <div class="pico-item"><strong>I</strong> 休閒治療（音樂、遊戲、藝術、舞蹈等）</div>
+      <div class="pico-item"><strong>C</strong> 常規照護或其他介入</div>
+      <div class="pico-item"><strong>O</strong> 認知功能（整體、記憶、執行功能）、神經精神症狀、生活品質</div>
+    </div>
+      <p class="utility-reason">💡 提供高層次的證據比較不同非藥物介入的效果，直接指導失智症照護方案的優化選擇。</p>
+      <div class="tags"><span class="tag">失智症</span><span class="tag">神經音樂治療</span><span class="tag">情緒調節</span><span class="tag">憂鬱症</span><span class="tag">焦慮症</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">閱讀原文 →</a>
+    </div>
+<div class="paper-card top-pick">
+      <div class="pick-rank">#2</div>
+      <span class="paper-emoji">🤱</span>
+      <span class="utility-badge utility-high">高實用性</span>
+      <h3>引導意象與音樂對產痛、焦慮及分娩經驗的影響：一項隨機試驗</h3>
+      <p class="journal">Journal of integrative and complementary medicine · Guided Imagery and Music for Labor Pain, Anxiety, and Birth Experience: A Randomized Trial.</p>
+      <p class="summary">RCT 研究發現，引導意象結合音樂與單純聽音樂均能減輕產痛軌跡；有趣的是，單純聽音樂組雖焦慮分數較高，但其分娩滿意度顯著優於對照組。</p>
+      <div class="pico">
+      <div class="pico-item"><strong>P</strong> 初產婦</div>
+      <div class="pico-item"><strong>I</strong> 引導意象結合音樂、單純音樂</div>
+      <div class="pico-item"><strong>C</strong> 僅接受常規產護</div>
+      <div class="pico-item"><strong>O</strong> 產痛（VAS）、焦慮（State-Trait）、分娩經驗滿意度</div>
+    </div>
+      <p class="utility-reason">💡 為產房護理人員與助產士提供具體的非藥物止痛介入方案，且發現了不同介入方式對滿意度與焦慮的差異影響。</p>
+      <div class="tags"><span class="tag">疼痛管理</span><span class="tag">焦慮症</span><span class="tag">接受式音樂治療</span><span class="tag">團體音樂治療</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">閱讀原文 →</a>
+    </div>
+<div class="paper-card top-pick">
+      <div class="pick-rank">#3</div>
+      <span class="paper-emoji">🏥</span>
+      <span class="utility-badge utility-high">高實用性</span>
+      <h3>佛教音樂對全身麻醉手術術中及術後鴉片類藥物需求的影響：隨機對照試驗</h3>
+      <p class="journal">iScience · Effect of Buddhist music on intraoperative and postoperative opioid requirements during general anesthesia: A randomized controlled pilot study.</p>
+      <p class="summary">雙盲 RCT 顯示，術中持續播放佛教音樂能顯著降低患者術中及術後的鴉片類止痛藥（芬太尼）累積使用量與給藥頻率，顯示其作為手術輔助療法的潛力。</p>
+      <div class="pico">
+      <div class="pico-item"><strong>P</strong> 接受全身麻醉的選擇性手術成人</div>
+      <div class="pico-item"><strong>I</strong> 術中播放佛教音樂</div>
+      <div class="pico-item"><strong>C</strong> 靜音組、對照組（無耳機）</div>
+      <div class="pico-item"><strong>O</strong> 術中及術後鴉片類藥物用量、給藥頻率、術後疼痛強度</div>
+    </div>
+      <p class="utility-reason">💡 證實了在全身麻醉期間（患者意識不清下）給予音樂介入仍能產生生理效益，有助於術後疼痛管理及減少藥物副作用。</p>
+      <div class="tags"><span class="tag">疼痛管理</span><span class="tag">接受式音樂治療</span><span class="tag">生理機制</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">閱讀原文 →</a>
+    </div>
+<div class="paper-card top-pick">
+      <div class="pick-rank">#4</div>
+      <span class="paper-emoji">💊</span>
+      <span class="utility-badge utility-high">高實用性</span>
+      <h3>住院音樂治療劑量對血液或腫瘤疾病患者疼痛強度與鴉片類藥物利用率的縱向影響</h3>
+      <p class="journal">Supportive care in cancer : official journal of the Multinational Association of Supportive Care in Cancer · Longitudinal effects of inpatient music therapy dosage on pain intensity and opioid utilization among patients with hematologic or oncologic conditions: a retrospective cohort study.</p>
+      <p class="summary">回顧性研究發現，接受多次音樂治療（≥3次）的患者，其疼痛強度與鴉片類藥物使用的減少幅度並未顯著優於僅接受 1 次治療的患者。</p>
+      <div class="pico">
+      <div class="pico-item"><strong>P</strong> 血液或腫瘤科住院且有疼痛或用藥需求的成人患者</div>
+      <div class="pico-item"><strong>I</strong> 不同劑量的音樂治療（1次、2次、≥3次）</div>
+      <div class="pico-item"><strong>C</strong> 不同治療頻率組間比較</div>
+      <div class="pico-item"><strong>O</strong> 疼痛強度（NRS）、每日鴉片類藥物用量（MME）</div>
+    </div>
+      <p class="utility-reason">💡 挑戰了「治療次數越多效果越好」的直覺，提示臨床應重新思考在急性疼痛管理中音樂治療的最佳劑量與敏感度指標。</p>
+      <div class="tags"><span class="tag">疼痛管理</span><span class="tag">安寧緩和醫療</span><span class="tag">腫瘤醫學</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">閱讀原文 →</a>
+    </div>
+<div class="paper-card top-pick">
+      <div class="pick-rank">#5</div>
+      <span class="paper-emoji">👶</span>
+      <span class="utility-badge utility-high">高實用性</span>
+      <h3>音樂治療對幼兒接種室肌肉注射疫苗時疼痛管理的有效性</h3>
+      <p class="journal">Annals of African medicine · Effectiveness of Music Therapy on Pain Management during Intramuscular Vaccines in Toddlers at Immunization Rooms.</p>
+      <p class="summary">類實驗研究證實，在疫苗接種前後使用發聲玩具介入，能使多數幼兒僅經歷輕微疼痛，顯著優於常規組的劇烈疼痛反應，是低成本且高效的分散注意力策略。</p>
+      <div class="pico">
+      <div class="pico-item"><strong>P</strong> 接種疫苗的幼兒</div>
+      <div class="pico-item"><strong>I</strong> 音樂玩具介入（視聽覺刺激）</div>
+      <div class="pico-item"><strong>C</strong> 常規接種程序</div>
+      <div class="pico-item"><strong>O</strong> 疼痛程度（FLACC 量表）</div>
+    </div>
+      <p class="utility-reason">💡 提供簡單、經濟且非侵入性的介入方式，能有效減輕幼兒常規醫療程序中的疼痛與恐懼，極易在基層醫療推廣。</p>
+      <div class="tags"><span class="tag">兒少治療</span><span class="tag">疼痛管理</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">閱讀原文 →</a>
+    </div>
+<h2>📚 其他值得關注的文獻</h2>
+<div class="paper-card">
+      <span class="paper-emoji">👁️</span>
+      <span class="utility-badge utility-mid">中</span>
+      <h3>白內障手術患者減少焦慮的有效策略：統合回顧</h3>
+      <p class="journal">Health science reports</p>
+      <p class="summary">統合回顧指出，包含音樂治療在內的非藥物介入措施（如教育影片、放鬆技巧）能顯著降低白內障手術患者術前焦慮，且不增加額外風險。</p>
+      <div class="tags"><span class="tag">焦慮症</span><span class="tag">接受式音樂治療</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">🦷</span>
+      <span class="utility-badge utility-mid">中</span>
+      <h3>改善成人拔牙患者心理情緒狀態的方法：系統性回顧</h3>
+      <p class="journal">BMC oral health</p>
+      <p class="summary">系統性回顧顯示，音樂治療、虛擬實境與芳香療法等非藥物介入，能有效降低成人拔牙術中的焦慮與生理壓力反應。</p>
+      <div class="tags"><span class="tag">焦慮症</span><span class="tag">疼痛管理</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">⚠️</span>
+      <span class="utility-badge utility-low">低</span>
+      <h3>詮釋單一案例設計中的治療效果：關於合併音樂治療與藥物治療的警示</h3>
+      <p class="journal">Clinical case reports</p>
+      <p class="summary">探討在單一案例設計中，當音樂治療與藥物治療合併使用時，詮釋其療效應注意的方法學問題與潛在偏誤。</p>
+      <div class="tags"><span class="tag">研究方法</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<h2>📊 主題分布</h2>
+<div class="topic-row">
+      <span class="topic-label">疼痛管理</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:100%"></div></div>
+      <span class="topic-count">4</span>
+    </div>
+<div class="topic-row">
+      <span class="topic-label">焦慮症</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:75%"></div></div>
+      <span class="topic-count">3</span>
+    </div>
+<div class="topic-row">
+      <span class="topic-label">失智症</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:25%"></div></div>
+      <span class="topic-count">1</span>
+    </div>
+<div class="topic-row">
+      <span class="topic-label">兒少治療</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:25%"></div></div>
+      <span class="topic-count">1</span>
+    </div>
+<div class="topic-row">
+      <span class="topic-label">安寧緩和醫療</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:25%"></div></div>
+      <span class="topic-count">1</span>
+    </div>
+<h2>🏷️ 關鍵字</h2>
+<div class="keywords"><span class="keyword">疼痛管理</span><span class="keyword">焦慮症</span><span class="keyword">失智症</span><span class="keyword">接受式音樂治療</span><span class="keyword">兒少治療</span><span class="keyword">安寧緩和醫療</span><span class="keyword">鴉片類藥物</span><span class="keyword">非藥物介入</span></div>
+<div class="footer">
+  <div class="footer-links">
+    <a href="https://www.leepsyclinic.com/" target="_blank" rel="noopener">🏥 李政洋身心診所首頁</a>
+    <a href="https://blog.leepsyclinic.com/" target="_blank" rel="noopener">📬 訂閱電子報</a>
+    <a href="https://buymeacoffee.com/CYlee" target="_blank" rel="noopener">☕ Buy Me a Coffee</a>
+  </div>
+  <p class="footer-info">資料來源：PubMed · 分析模型：GLM-5-Turbo · <a href="https://github.com/u8901006/music-therapy">GitHub</a></p>
+</div>
+</div>
+</body>
+</html>
