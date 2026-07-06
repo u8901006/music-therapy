@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Music Therapy Research · 音樂治療研究文獻日報 · 2026年7月6日</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎵</text></svg>">
+<style>
+:root {
+  --bg: #f6f1e8;
+  --surface: #fffaf2;
+  --line: #d8c5ab;
+  --text: #2b2118;
+  --muted: #766453;
+  --accent: #8c4f2b;
+  --accent-soft: #ead2bf;
+  --card-bg: #fffcf5;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "Noto Sans TC", "PingFang TC", "Helvetica Neue", Arial, sans-serif;
+  background: radial-gradient(circle at top, #fff6ea 0, var(--bg) 55%, #ead8c6 100%);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+.container {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 40px 20px 60px;
+}
+h1 {
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+}
+.divider {
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-soft), transparent);
+  border-radius: 2px;
+  margin: 12px 0 20px;
+}
+.meta {
+  font-size: 0.92rem;
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 36px 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--line);
+}
+.market-summary {
+  font-size: 1.02rem;
+  color: var(--text);
+  line-height: 1.8;
+  padding: 14px 18px;
+  background: var(--surface);
+  border-radius: 16px;
+  border: 1px solid var(--line);
+}
+.paper-card {
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 22px 26px 18px;
+  margin-bottom: 18px;
+  position: relative;
+  animation: fadeUp 0.4s ease both;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.paper-card:hover {
+  box-shadow: 0 6px 24px rgba(61,36,15,0.09);
+  transform: translateY(-2px);
+}
+.paper-card.top-pick {
+  border-left: 4px solid var(--accent);
+  background: linear-gradient(135deg, var(--card-bg) 0%, #fff8ee 100%);
+}
+.pick-rank {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--accent-soft);
+  line-height: 1;
+}
+.paper-emoji { font-size: 1.3rem; margin-right: 6px; }
+.utility-badge {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: 12px;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+.utility-high { background: #d4edda; color: #155724; }
+.utility-mid { background: #fff3cd; color: #856404; }
+.utility-low { background: #e2e3e5; color: #6c757d; }
+.paper-card h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 10px 0 6px;
+  color: var(--text);
+  line-height: 1.5;
+  padding-right: 48px;
+}
+.journal {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.summary {
+  font-size: 0.95rem;
+  color: var(--text);
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+.pico {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  background: var(--surface);
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin: 10px 0;
+  font-size: 0.88rem;
+  border: 1px solid var(--line);
+}
+.pico-item strong {
+  color: var(--accent);
+  margin-right: 4px;
+}
+.utility-reason {
+  font-size: 0.88rem;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 6px; }
+.tag {
+  display: inline-block;
+  font-size: 0.78rem;
+  background: var(--accent-soft);
+  color: var(--accent);
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-weight: 500;
+}
+.read-more {
+  display: inline-block;
+  font-size: 0.88rem;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  margin-top: 4px;
+  transition: color 0.15s;
+}
+.read-more:hover { text-decoration: underline; }
+.keywords { display: flex; flex-wrap: wrap; gap: 8px; }
+.keyword {
+  display: inline-block;
+  font-size: 0.82rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--text);
+  padding: 4px 14px;
+  border-radius: 20px;
+}
+.topic-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  gap: 10px;
+}
+.topic-label {
+  min-width: 100px;
+  font-size: 0.88rem;
+  text-align: right;
+  color: var(--text);
+}
+.topic-bar-bg {
+  flex: 1;
+  height: 18px;
+  background: var(--surface);
+  border-radius: 9px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+.topic-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-soft));
+  border-radius: 9px;
+  transition: width 0.5s ease;
+}
+.topic-count {
+  min-width: 28px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+.footer {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 2px solid var(--line);
+  text-align: center;
+}
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.footer-links a {
+  display: inline-block;
+  font-size: 0.92rem;
+  color: var(--accent);
+  text-decoration: none;
+  padding: 8px 18px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  transition: background 0.15s, transform 0.15s;
+}
+.footer-links a:hover {
+  background: var(--accent-soft);
+  transform: translateY(-1px);
+}
+.footer-info {
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+.footer-info a { color: var(--accent); text-decoration: none; }
+.footer-info a:hover { text-decoration: underline; }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 600px) {
+  .container { padding: 20px 14px 40px; }
+  h1 { font-size: 1.3rem; }
+  .paper-card { padding: 16px 16px 14px; border-radius: 18px; }
+  .paper-card h3 { font-size: 0.95rem; padding-right: 0; }
+  .pick-rank { font-size: 1.5rem; }
+  .pico { grid-template-columns: 1fr; }
+  .topic-label { min-width: 70px; font-size: 0.8rem; }
+  .footer-links { flex-direction: column; align-items: center; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>🎵 Music Therapy Research · 音樂治療研究文獻日報</h1>
+<div class="divider"></div>
+<div class="meta">📅 2026年7月6日 &nbsp;|&nbsp; 📊 31 篇文獻 &nbsp;|&nbsp; Powered by PubMed + GLM-5-Turbo</div>
+<h2>📋 今日文獻趨勢</h2>
+<p class="market-summary">今日文獻顯示音樂治療正從「經驗性」向「機制導向」與「技術整合」轉型，特別是透過血清生物標記驗證其在重度憂鬱症中的抗發炎機制，以及結合AI與節奏聽覺刺激在神經復健（如帕金森氏症與癲癇）中的精準應用。</p>
+<h2>⭐ 今日精選 TOP Picks</h2>
+<div class="paper-card top-pick">
+      <div class="pick-rank">#1</div>
+      <span class="paper-emoji">🧪</span>
+      <span class="utility-badge utility-high">高實用性</span>
+      <h3>血清參數測量顯示音樂治療透過增強壓力應對與降低全身發炎發揮療效</h3>
+      <p class="journal">Depression and anxiety · Measurement of Serum Parameters Attributes the Therapeutic Effects of Music Therapy to Augmented Stress-Coping Ability and Diminished Systemic Inflammation.</p>
+      <p class="summary">研究證實藥物合併莫扎特D大調K.448與G小調K.550音樂治療，能顯著降低憂鬱症患者皮質醇與發炎因子，為音樂治療作為憂鬱症輔助療法提供明確的生理機制證據。</p>
+      <div class="pico">
+      <div class="pico-item"><strong>P</strong> 重度憂鬱症（MDD）患者</div>
+      <div class="pico-item"><strong>I</strong> 藥物治療合併特定古典音樂治療（D大調K.448與G小調K.550）</div>
+      <div class="pico-item"><strong>C</strong> 單純藥物治療</div>
+      <div class="pico-item"><strong>O</strong> 血清皮質醇、去甲腎上腺素及發炎細胞因子（如TNF-α、CCL11）水準顯著下降</div>
+    </div>
+      <p class="utility-reason">💡 提供具體可執行的音樂處方（特定曲目）及客觀生理指標，極易整合入精神科現有治療流程。</p>
+      <div class="tags"><span class="tag">憂鬱症</span><span class="tag">生理機制</span><span class="tag">接受式音樂治療</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">閱讀原文 →</a>
+    </div>
+<div class="paper-card top-pick">
+      <div class="pick-rank">#2</div>
+      <span class="paper-emoji">🥁</span>
+      <span class="utility-badge utility-high">高實用性</span>
+      <h3>節奏鼓樂與運動介入對社區老年人反應時間的影響：一项非隨機 pilot 研究</h3>
+      <p class="journal">Journal of aging research · Effects of a Rhythmic Drumming and Movement Intervention on Reaction Time in Community-Dwelling Older Adults: A Nonrandomized Pilot Study.</p>
+      <p class="summary">為期10週的Drums Alive節奏有氧鼓樂課程，能顯著改善社區老年人的動作時間與總反應時間，顯示節律性運動對維持老年人駕駛安全與防跌的潛力。</p>
+      <div class="pico">
+      <div class="pico-item"><strong>P</strong> 社區居住老年人（平均年齡約69歲）</div>
+      <div class="pico-item"><strong>I</strong> 10週 Drums Alive 節奏有氧鼓樂課程</div>
+      <div class="pico-item"><strong>C</strong> 拉伸運動對照組</div>
+      <div class="pico-item"><strong>O</strong> 模擬駕駛煞車任務中的動作時間與總反應時間顯著縮短</div>
+    </div>
+      <p class="utility-reason">💡 介入方式具體、易於在社區長照體系推廣，且直接連結到老年人極度關心的駕駛安全與行動力議題。</p>
+      <div class="tags"><span class="tag">老年照護</span><span class="tag">神經音樂治療</span><span class="tag">社區音樂治療</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">閱讀原文 →</a>
+    </div>
+<div class="paper-card top-pick">
+      <div class="pick-rank">#3</div>
+      <span class="paper-emoji">🚶‍♂️</span>
+      <span class="utility-badge utility-high">高實用性</span>
+      <h3>穿越時空的運動：帕金森氏症治療的演進</h3>
+      <p class="journal">Journal of neurologic physical therapy : JNPT · Movement Through Time: The Evolution of Treatment for People With Parkinson Disease.</p>
+      <p class="summary">該專文提出帕金森氏症的次級預防照護模式，強調應將閉環節奏聽覺刺激等互補性介入，從晚期反應性治療前移至診斷初期的長期復健策略中。</p>
+      <div class="pico">
+      <div class="pico-item"><strong>P</strong> 帕金森氏症患者</div>
+      <div class="pico-item"><strong>I</strong> 包含閉環節奏聽覺刺激、認知行為策略等互補性復健介入（次級預防模式）</div>
+      <div class="pico-item"><strong>C</strong> 傳統反應性、晚期階段的物理治療</div>
+      <div class="pico-item"><strong>O</strong> 改善真實世界的行走能力、減少步態凍結、延長健康壽命</div>
+    </div>
+      <p class="utility-reason">💡 呼籲將節奏聽覺刺激等神經音樂治療技術前移至確診初期，對復健團隊的臨床決策與照護模式具有顛覆性影響。</p>
+      <div class="tags"><span class="tag">帕金森氏症</span><span class="tag">節奏聽覺刺激</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">閱讀原文 →</a>
+    </div>
+<div class="paper-card top-pick">
+      <div class="pick-rank">#4</div>
+      <span class="paper-emoji">🧠</span>
+      <span class="utility-badge utility-high">高實用性</span>
+      <h3>生活型態修飾介入對癲癇發作減少與生活品質影響的系統性文獻回顧與統合分析</h3>
+      <p class="journal">Epilepsia · Systematic review and meta-analysis of lifestyle modification interventions and their impact on seizure reduction and quality of life.</p>
+      <p class="summary">統合分析顯示，在多種非藥物介入中，音樂治療對癲癇患者達到50%以上發作減少的長期反應率與其他介入相當，證實其作為輔助療法的確切價值。</p>
+      <div class="pico">
+      <div class="pico-item"><strong>P</strong> 接受標準藥物治療的癲癇患者（成人或混合族群）</div>
+      <div class="pico-item"><strong>I</strong> 音樂治療等生活型態介入</div>
+      <div class="pico-item"><strong>C</strong> 常規醫療照護或對照組</div>
+      <div class="pico-item"><strong>O</strong> 癲癇發作頻率減少≥50%的短長期反應率、生活品質提升</div>
+    </div>
+      <p class="utility-reason">💡 以大規模統合分析數據支持音樂治療用於癲癇輔助治療，為神經科醫師與音樂治療師跨團隊合作提供強力循證基礎。</p>
+      <div class="tags"><span class="tag">神經音樂治療</span><span class="tag">生活品質</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">閱讀原文 →</a>
+    </div>
+<div class="paper-card top-pick">
+      <div class="pick-rank">#5</div>
+      <span class="paper-emoji">🤖</span>
+      <span class="utility-badge utility-mid">中實用性</span>
+      <h3>探索AI情緒標記與人類反應的一致性：對基於音樂的心理健康介入的啟示</h3>
+      <p class="journal">Studies in health technology and informatics · Exploring the Alignment of AI-Based Mood Labelling with Human Responses: Implications for Music-Based Mental Health Interventions.</p>
+      <p class="summary">AI情緒識別系統雖與實驗預設目標情緒有落差，但其生成的情緒概率與人類皮膚電導反應顯著相關，顯示AI在輔助音樂治療精準選曲上的潛力與需人類把關的必要性。</p>
+      <div class="pico">
+      <div class="pico-item"><strong>P</strong> 21名健康參與者</div>
+      <div class="pico-item"><strong>I</strong> 播放負向價效古典音樂並同步進行AI情緒分析與皮膚電導監測</div>
+      <div class="pico-item"><strong>C</strong> 實驗預設的目標情緒</div>
+      <div class="pico-item"><strong>O</strong> AI情緒概率與人類生理反應（皮膚電導）之間的顯著對齊與差異</div>
+    </div>
+      <p class="utility-reason">💡 目前僅為初步探索，但為未來開發智能音樂治療選曲輔助工具與客觀生理驗證提供了重要的概念基礎。</p>
+      <div class="tags"><span class="tag">神經科學</span><span class="tag">情緒調節</span><span class="tag">接受式音樂治療</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">閱讀原文 →</a>
+    </div>
+<div class="paper-card top-pick">
+      <div class="pick-rank">#6</div>
+      <span class="paper-emoji">📚</span>
+      <span class="utility-badge utility-mid">中實用性</span>
+      <h3>探索音樂治療的主題：範圍綜述</h3>
+      <p class="journal">Acta psychologica · Exploring themes in music therapy: A scoping review.</p>
+      <p class="summary">回顧57篇實驗研究指出，接受式與參與式音樂治療最能緩解情緒障礙症狀並促進神經可塑性，但缺乏標準化介入流程是當前臨床應用的主要瓶頸。</p>
+      <div class="pico">
+      <div class="pico-item"><strong>P</strong> 各類神經與精神障礙患者（文獻綜合）</div>
+      <div class="pico-item"><strong>I</strong> 音樂治療介入（含接受式、參與式等）</div>
+      <div class="pico-item"><strong>C</strong> 無特定對照（範圍綜述）</div>
+      <div class="pico-item"><strong>O</strong> 症狀緩解、認知功能提升、神經可塑性變化</div>
+    </div>
+      <p class="utility-reason">💡 幫助臨床工作者快速掌握近十年音樂治療的整體成效與盲點，有助於未來介入方案的標準化設計。</p>
+      <div class="tags"><span class="tag">神經科學</span><span class="tag">情緒調節</span><span class="tag">生活品質</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">閱讀原文 →</a>
+    </div>
+<h2>📚 其他值得關注的文獻</h2>
+<div class="paper-card">
+      <span class="paper-emoji">🏥</span>
+      <span class="utility-badge utility-low">低</span>
+      <h3>臨床督導與護理人員職業倦怠：範圍綜述</h3>
+      <p class="journal">Journal of advanced nursing</p>
+      <p class="summary">結構性臨床督導與領導層支持可能作為降低護理人員職業倦怠的組織支持策略，但現有證據異質性高，需更嚴謹的設計。</p>
+      <div class="tags"><span class="tag">照顧者支持</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">🔥</span>
+      <span class="utility-badge utility-mid">中</span>
+      <h3>晚期胰臟癌的疼痛盛行率與強度：全國性世代研究</h3>
+      <p class="journal">Pain</p>
+      <p class="summary">超過50%的晚期胰臟癌患者受疼痛困擾，接受化療的患者其疼痛嚴重度與干擾顯著低於僅接受最佳支持性照護者。</p>
+      <div class="tags"><span class="tag">疼痛管理</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">🧬</span>
+      <span class="utility-badge utility-low">低</span>
+      <h3>三叉神經節與背根神經節的神经生物學比較</h3>
+      <p class="journal">Pain</p>
+      <p class="summary">三叉神經節與背根神經節在胚胎起源、基因表現與神經膠細胞交互作用上存在顯著差異，這解釋了顱面與軀體疼痛對治療反應的不同。</p>
+      <div class="tags"><span class="tag">疼痛管理</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">💊</span>
+      <span class="utility-badge utility-low">低</span>
+      <h3>外周kappa類阿片受體調節化療誘發神經病變小鼠模型的冷覺過敏</h3>
+      <p class="journal">Pain</p>
+      <p class="summary">研究確認背根神經節中的外周kappa類阿片受體在調節奧沙利鉑引發的冷覺過敏中扮演關鍵角色。</p>
+      <div class="tags"><span class="tag">疼痛管理</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">❤️</span>
+      <span class="utility-badge utility-low">低</span>
+      <h3>感染HIV的照顧者經歷更高的照顧壓力與特定於性別認同的衰老擔憂</h3>
+      <p class="journal">Aging &amp; mental health</p>
+      <p class="summary">攜帶HIV的個體不僅更可能成為照顧者，其承受的照顧壓力與衰老焦慮也顯著高於非HIV感染者。</p>
+      <div class="tags"><span class="tag">照顧者支持</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">🧠</span>
+      <span class="utility-badge utility-mid">中</span>
+      <h3>探討心臟驟停倖存者及其家庭照顧者與腦部健康相關的壓力源與應對策略</h3>
+      <p class="journal">Aging &amp; mental health</p>
+      <p class="summary">心臟驟停倖存者與家屬面臨持續的腦部健康壓力，他們多採用同儕支持、接受策略與代償策略來應對，並期望未來介入能納入營養與情緒管理。</p>
+      <div class="tags"><span class="tag">腦中風復健</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">📈</span>
+      <span class="utility-badge utility-low">低</span>
+      <h3>探索實踐發展介入措施對患者與員工結果的影響：系統性文獻回顧</h3>
+      <p class="journal">Journal of advanced nursing</p>
+      <p class="summary">實踐發展（PD）有助於改善醫療環境與員工體驗，但目前的證據尚不足以證明其能穩定提升臨床結果或患者生活品質。</p>
+      <div class="tags"><span class="tag">生活品質</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">👴</span>
+      <span class="utility-badge utility-mid">中</span>
+      <h3>多重慢性病老年患者心理危機易感性与自我揭露的相關性研究</h3>
+      <p class="journal">Journal of advanced nursing</p>
+      <p class="summary">多重慢性病老年患者的心理危機易感性受居住狀態、經濟與婚姻等多因素影響，且自我揭露受個性與家庭氛圍調節。</p>
+      <div class="tags"><span class="tag">老年照護</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">🏃‍♂️</span>
+      <span class="utility-badge utility-mid">中</span>
+      <h3>成功老化中的行為參與與心理知覺：老年人衰老焦慮的角色</h3>
+      <p class="journal">Aging &amp; mental health</p>
+      <p class="summary">積極參與健康老化行為是成功老化的關鍵決定因素（解釋變異量達49.1%），而衰老焦慮的影響相對有限。</p>
+      <div class="tags"><span class="tag">老年照護</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">🕊️</span>
+      <span class="utility-badge utility-low">低</span>
+      <h3>看不見的傷口：戰爭初期祖母的創傷壓力症狀</h3>
+      <p class="journal">Aging &amp; mental health</p>
+      <p class="summary">在戰爭初期，祖母的創傷後壓力症狀受不確定性容忍度、對孫子女受傷的擔憂及公共場所迴避行為顯著影響，自我慈悲與社會支持則具保護作用。</p>
+      <div class="tags"><span class="tag">PTSD</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">👩‍👦</span>
+      <span class="utility-badge utility-low">低</span>
+      <h3>兒科模擬中的喪親父母與配偶作為教育者：倫理反思</h3>
+      <p class="journal">Journal of pain and symptom management</p>
+      <p class="summary">喪親家屬參與兒科安寧緩和模擬教學能提升真實性，但需透過創傷知覺的招募、結構化簡報與心理支持來確保倫理與參與者安全。</p>
+      <div class="tags"><span class="tag">安寧緩和醫療</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">📱</span>
+      <span class="utility-badge utility-low">低</span>
+      <h3>未上線的病人：彌平安寧療護中數位鴻溝的案例報告</h3>
+      <p class="journal">Journal of pain and symptom management</p>
+      <p class="summary">透過案例探討在安寧照護中面對數位醫療鴻溝時的挑戰與解決方案。</p>
+      <div class="tags"><span class="tag">安寧照護</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">📊</span>
+      <span class="utility-badge utility-mid">中</span>
+      <h3>外傷性脊髓損傷患者神經學評估的無監督數據驅動聚類分析</h3>
+      <p class="journal">Neurorehabilitation and neural repair</p>
+      <p class="summary">數據驅動的聚類分析能揭開常規AIS分級下感覺運動完全性損傷患者的潛在異質性，有助於更精準的預後評估與試驗分層。</p>
+      <div class="tags"><span class="tag">腦中風復健</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">🎓</span>
+      <span class="utility-badge utility-low">低</span>
+      <h3>安寧緩和醫學獎學金在培訓多元專科醫師時感知的障礙</h3>
+      <p class="journal">Journal of pain and symptom management</p>
+      <p class="summary">安寧緩和醫學獎學金在培訓非傳統專科（非內科、家醫、兒科） fellow 時，面臨導師支持薄弱與門診經驗不足等主要障礙。</p>
+      <div class="tags"><span class="tag">安寧緩和醫療</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">⚖️</span>
+      <span class="utility-badge utility-mid">中</span>
+      <h3>健康公平：嚴重疾病照護的基石</h3>
+      <p class="journal">Journal of pain and symptom management</p>
+      <p class="summary">嚴重疾病照護必須將健康公平視為品質的核心定義，主動在臨床、研究與制度設計中消除結構性與社會性的不平等。</p>
+      <div class="tags"><span class="tag">安寧緩和醫療</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">🗣️</span>
+      <span class="utility-badge utility-mid">中</span>
+      <h3>醫療環境中的「嬰兒語」：照護、控制與人格的交匯點</h3>
+      <p class="journal">Journal of advanced nursing</p>
+      <p class="summary">「嬰兒語」雖出於善意與方便照護，但會侵蝕長者的自主性與人格尊嚴，需從個人溝通習慣與機構文化雙層面進行反思與改善。</p>
+      <div class="tags"><span class="tag">失智症</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">🫁</span>
+      <span class="utility-badge utility-mid">中</span>
+      <h3>機械通氣成人患者的真實體驗：詮釋現象學分析</h3>
+      <p class="journal">Nursing in critical care</p>
+      <p class="summary">機械通氣患者經歷了極度脆弱、與現實脫節的恐怖幻覺，以及長期的情緒負擔，強調重症照護中人性化與慈悲介入的必要性。</p>
+      <div class="tags"><span class="tag">生活品質</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">🎨</span>
+      <span class="utility-badge utility-low">低</span>
+      <h3>流產與福祉：將失去視覺化的表演性儀式</h3>
+      <p class="journal">Arts &amp; health</p>
+      <p class="summary">基於藝術的表演性儀式能幫助流產婦女驗證、承認並走出喪失感，同時為現有醫療體系提供更全面的創傷知覺照護資源。</p>
+      <div class="tags"><span class="tag">生活品質</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">😴</span>
+      <span class="utility-badge utility-mid">中</span>
+      <h3>褪黑激素管理肌肉骨骼疼痛的療效與有效性：系統性文獻回顧與統合分析</h3>
+      <p class="journal">Pain</p>
+      <p class="summary">褪黑激素在慢性肌肉骨骼疼痛中能提供適度的疼痛緩解與睡眠品質改善，雖效果未達最小臨床重要差異，但可考慮作為輔助治療。</p>
+      <div class="tags"><span class="tag">疼痛管理</span><span class="tag">睡眠醫學</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">🤝</span>
+      <span class="utility-badge utility-mid">中</span>
+      <h3>維持醫療保健中第二受害者同儕支持計畫的模型：德爾菲研究</h3>
+      <p class="journal">Journal of advanced nursing</p>
+      <p class="summary">研究提出5C框架，強調高層領導承諾、專職協調與心理安全文化是維持醫療不良事件後「第二受害者」同儕支持計畫長期運作的關鍵。</p>
+      <div class="tags"><span class="tag">照顧者支持</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">🇰🇷</span>
+      <span class="utility-badge utility-low">低</span>
+      <h3>韓裔美國人失智症家庭照顧者壓力管理介入 K-iCare 的發展</h3>
+      <p class="journal">Aging &amp; mental health</p>
+      <p class="summary">透過系統性文化適應過程，將認知行為壓力管理介入轉化為適合韓裔美國人失智症照顧者的同步小團體模式。</p>
+      <div class="tags"><span class="tag">失智症</span><span class="tag">照顧者支持</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">💨</span>
+      <span class="utility-badge utility-mid">中</span>
+      <h3>肺病患者應對呼吸困難的經歷：系統性回顧與統合分析</h3>
+      <p class="journal">Journal of pain and symptom management</p>
+      <p class="summary">面對呼吸困難，患者需在生理、心理與社會層面持續調適，介入措施應支持其症狀管理、身份維持與社會連結。</p>
+      <div class="tags"><span class="tag">疼痛管理</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">🚶‍♀️</span>
+      <span class="utility-badge utility-mid">中</span>
+      <h3>憂鬱症與身體活動對歐洲中老年人衰弱前與衰弱狀態的聯合關聯</h3>
+      <p class="journal">Aging &amp; mental health</p>
+      <p class="summary">身體活動能顯著降低中老年人衰弱前與衰弱的發生風險，且即使在有憂鬱症狀的個體中，高強度身體活動仍具有保護效果。</p>
+      <div class="tags"><span class="tag">憂鬱症</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">🦴</span>
+      <span class="utility-badge utility-mid">中</span>
+      <h3>非特異性肌肉骨骼疼痛患者疼痛強度、失能與生活品質的預測性社會文化因素</h3>
+      <p class="journal">Pain</p>
+      <p class="summary">失業、退休、移民背景與非母語能力與較差的疼痛、失能及生活品質長期相關，顯示肌肉骨骼疼痛在社會層面的不平等分布。</p>
+      <div class="tags"><span class="tag">疼痛管理</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">💰</span>
+      <span class="utility-badge utility-low">低</span>
+      <h3>獎賞誘發的內源性疼痛抑制隨動作-結果確定性擴增</h3>
+      <p class="journal">Pain</p>
+      <p class="summary">研究發現人類在賭博任務中獲得疼痛緩解時，其內源性疼痛抑制的強度會隨著對「何種行為能帶來緩解」的確定性增加而增強。</p>
+      <div class="tags"><span class="tag">神經科學</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<h2>📊 主題分布</h2>
+<div class="topic-row">
+      <span class="topic-label">疼痛管理</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:100%"></div></div>
+      <span class="topic-count">7</span>
+    </div>
+<div class="topic-row">
+      <span class="topic-label">老年照護</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:43%"></div></div>
+      <span class="topic-count">3</span>
+    </div>
+<div class="topic-row">
+      <span class="topic-label">安寧緩和醫療</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:43%"></div></div>
+      <span class="topic-count">3</span>
+    </div>
+<div class="topic-row">
+      <span class="topic-label">憂鬱症</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:29%"></div></div>
+      <span class="topic-count">2</span>
+    </div>
+<div class="topic-row">
+      <span class="topic-label">神經科學</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:29%"></div></div>
+      <span class="topic-count">2</span>
+    </div>
+<div class="topic-row">
+      <span class="topic-label">照顧者支持</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:43%"></div></div>
+      <span class="topic-count">3</span>
+    </div>
+<div class="topic-row">
+      <span class="topic-label">失智症</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:29%"></div></div>
+      <span class="topic-count">2</span>
+    </div>
+<div class="topic-row">
+      <span class="topic-label">PTSD</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:14%"></div></div>
+      <span class="topic-count">1</span>
+    </div>
+<div class="topic-row">
+      <span class="topic-label">腦中風復健</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:29%"></div></div>
+      <span class="topic-count">2</span>
+    </div>
+<div class="topic-row">
+      <span class="topic-label">生活品質</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:43%"></div></div>
+      <span class="topic-count">3</span>
+    </div>
+<div class="topic-row">
+      <span class="topic-label">安寧照護</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:14%"></div></div>
+      <span class="topic-count">1</span>
+    </div>
+<h2>🏷️ 關鍵字</h2>
+<div class="keywords"><span class="keyword">生理機制</span><span class="keyword">AI情緒識別</span><span class="keyword">節奏聽覺刺激</span><span class="keyword">憂鬱症</span><span class="keyword">神經可塑性</span><span class="keyword">老年預防保健</span></div>
+<div class="footer">
+  <div class="footer-links">
+    <a href="https://www.leepsyclinic.com/" target="_blank" rel="noopener">🏥 李政洋身心診所首頁</a>
+    <a href="https://blog.leepsyclinic.com/" target="_blank" rel="noopener">📬 訂閱電子報</a>
+    <a href="https://buymeacoffee.com/CYlee" target="_blank" rel="noopener">☕ Buy Me a Coffee</a>
+  </div>
+  <p class="footer-info">資料來源：PubMed · 分析模型：GLM-5-Turbo · <a href="https://github.com/u8901006/music-therapy">GitHub</a></p>
+</div>
+</div>
+</body>
+</html>
