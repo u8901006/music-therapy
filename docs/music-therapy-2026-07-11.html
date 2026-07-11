@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Music Therapy Research · 音樂治療研究文獻日報 · 2026年7月11日</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎵</text></svg>">
+<style>
+:root {
+  --bg: #f6f1e8;
+  --surface: #fffaf2;
+  --line: #d8c5ab;
+  --text: #2b2118;
+  --muted: #766453;
+  --accent: #8c4f2b;
+  --accent-soft: #ead2bf;
+  --card-bg: #fffcf5;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "Noto Sans TC", "PingFang TC", "Helvetica Neue", Arial, sans-serif;
+  background: radial-gradient(circle at top, #fff6ea 0, var(--bg) 55%, #ead8c6 100%);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+.container {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 40px 20px 60px;
+}
+h1 {
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+}
+.divider {
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-soft), transparent);
+  border-radius: 2px;
+  margin: 12px 0 20px;
+}
+.meta {
+  font-size: 0.92rem;
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 36px 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--line);
+}
+.market-summary {
+  font-size: 1.02rem;
+  color: var(--text);
+  line-height: 1.8;
+  padding: 14px 18px;
+  background: var(--surface);
+  border-radius: 16px;
+  border: 1px solid var(--line);
+}
+.paper-card {
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 22px 26px 18px;
+  margin-bottom: 18px;
+  position: relative;
+  animation: fadeUp 0.4s ease both;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.paper-card:hover {
+  box-shadow: 0 6px 24px rgba(61,36,15,0.09);
+  transform: translateY(-2px);
+}
+.paper-card.top-pick {
+  border-left: 4px solid var(--accent);
+  background: linear-gradient(135deg, var(--card-bg) 0%, #fff8ee 100%);
+}
+.pick-rank {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--accent-soft);
+  line-height: 1;
+}
+.paper-emoji { font-size: 1.3rem; margin-right: 6px; }
+.utility-badge {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: 12px;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+.utility-high { background: #d4edda; color: #155724; }
+.utility-mid { background: #fff3cd; color: #856404; }
+.utility-low { background: #e2e3e5; color: #6c757d; }
+.paper-card h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 10px 0 6px;
+  color: var(--text);
+  line-height: 1.5;
+  padding-right: 48px;
+}
+.journal {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.summary {
+  font-size: 0.95rem;
+  color: var(--text);
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+.pico {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  background: var(--surface);
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin: 10px 0;
+  font-size: 0.88rem;
+  border: 1px solid var(--line);
+}
+.pico-item strong {
+  color: var(--accent);
+  margin-right: 4px;
+}
+.utility-reason {
+  font-size: 0.88rem;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 6px; }
+.tag {
+  display: inline-block;
+  font-size: 0.78rem;
+  background: var(--accent-soft);
+  color: var(--accent);
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-weight: 500;
+}
+.read-more {
+  display: inline-block;
+  font-size: 0.88rem;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  margin-top: 4px;
+  transition: color 0.15s;
+}
+.read-more:hover { text-decoration: underline; }
+.keywords { display: flex; flex-wrap: wrap; gap: 8px; }
+.keyword {
+  display: inline-block;
+  font-size: 0.82rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--text);
+  padding: 4px 14px;
+  border-radius: 20px;
+}
+.topic-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  gap: 10px;
+}
+.topic-label {
+  min-width: 100px;
+  font-size: 0.88rem;
+  text-align: right;
+  color: var(--text);
+}
+.topic-bar-bg {
+  flex: 1;
+  height: 18px;
+  background: var(--surface);
+  border-radius: 9px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+.topic-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-soft));
+  border-radius: 9px;
+  transition: width 0.5s ease;
+}
+.topic-count {
+  min-width: 28px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+.footer {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 2px solid var(--line);
+  text-align: center;
+}
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.footer-links a {
+  display: inline-block;
+  font-size: 0.92rem;
+  color: var(--accent);
+  text-decoration: none;
+  padding: 8px 18px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  transition: background 0.15s, transform 0.15s;
+}
+.footer-links a:hover {
+  background: var(--accent-soft);
+  transform: translateY(-1px);
+}
+.footer-info {
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+.footer-info a { color: var(--accent); text-decoration: none; }
+.footer-info a:hover { text-decoration: underline; }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 600px) {
+  .container { padding: 20px 14px 40px; }
+  h1 { font-size: 1.3rem; }
+  .paper-card { padding: 16px 16px 14px; border-radius: 18px; }
+  .paper-card h3 { font-size: 0.95rem; padding-right: 0; }
+  .pick-rank { font-size: 1.5rem; }
+  .pico { grid-template-columns: 1fr; }
+  .topic-label { min-width: 70px; font-size: 0.8rem; }
+  .footer-links { flex-direction: column; align-items: center; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>🎵 Music Therapy Research · 音樂治療研究文獻日報</h1>
+<div class="divider"></div>
+<div class="meta">📅 2026年7月11日 &nbsp;|&nbsp; 📊 12 篇文獻 &nbsp;|&nbsp; Powered by PubMed + GLM-5-Turbo</div>
+<h2>📋 今日文獻趨勢</h2>
+<p class="market-summary">今日音樂治療文獻呈現「高階證據密集發布」的趨勢，包含多篇網絡 Meta 分析與系統性文獻回顧，顯示該領域正積極建立次專科的循證基礎；臨床應用面上，涵蓋失智症認知維持、腦中風失語症復健及術前焦慮緩解，展現從神經復健到安寧支持的全方位擴展。</p>
+<h2>⭐ 今日精選 TOP Picks</h2>
+<div class="paper-card top-pick">
+      <div class="pick-rank">#1</div>
+      <span class="paper-emoji">🧠</span>
+      <span class="utility-badge utility-high">高實用性</span>
+      <h3>輕度認知障礙與失智症患者娛樂治療之比較效益：網絡 Meta 分析</h3>
+      <p class="journal">International journal of nursing studies · Comparative effectiveness of recreational therapies on cognition, neuropsychiatric symptoms, and psychosocial outcomes in individuals with mild cognitive impairment and dementia: A network meta-analysis.</p>
+      <p class="summary">音樂治療在提升失智症患者整體認知功能方面顯著有效（SMD=0.29），且在延遲記憶等特定認知領域表現突出，為臨床選擇非藥物介入提供重要依據。</p>
+      <div class="pico">
+      <div class="pico-item"><strong>P</strong> 輕度認知障礙與失智症患者</div>
+      <div class="pico-item"><strong>I</strong> 娛樂治療（含音樂治療、遊戲治療、藝術治療等）</div>
+      <div class="pico-item"><strong>C</strong> 其他類型娛樂治療或常規照護</div>
+      <div class="pico-item"><strong>O</strong> 整體認知功能、記憶力、神經精神症狀與生活品質</div>
+    </div>
+      <p class="utility-reason">💡 直接比較多種娛樂治療的效能，幫助臨床人員針對失智症不同認知缺損精準選擇音樂治療等介入方式。</p>
+      <div class="tags"><span class="tag">失智症</span><span class="tag">生活品質</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">閱讀原文 →</a>
+    </div>
+<div class="paper-card top-pick">
+      <div class="pick-rank">#2</div>
+      <span class="paper-emoji">🎵</span>
+      <span class="utility-badge utility-high">高實用性</span>
+      <h3>乳房切片術中音樂介入對焦慮與疼痛的影響：隨機對照試驗之系統性文獻回顧與 Meta 分析</h3>
+      <p class="journal">Journal of integrative and complementary medicine · Music Intervention for Anxiety and Pain During Breast Biopsy Procedures: A Comprehensive Systematic Review and Meta-Analysis of Randomized Controlled Trials.</p>
+      <p class="summary">音樂介入能顯著降低乳房切片術患者的焦慮感（SMD=-0.22），雖對疼痛無顯著影響，但作為安全無副作用的心理支持工具，極具臨床推廣價值。</p>
+      <div class="pico">
+      <div class="pico-item"><strong>P</strong> 接受乳房切片術的女性患者</div>
+      <div class="pico-item"><strong>I</strong> 術中聆聽音樂</div>
+      <div class="pico-item"><strong>C</strong> 常規照護（無音樂介入）</div>
+      <div class="pico-item"><strong>O</strong> 術中與術後焦慮評分、疼痛評分</div>
+    </div>
+      <p class="utility-reason">💡 診斷影像科與外科門診極易實施的低成本介入，明確證實能改善患者就醫體驗與術前焦慮。</p>
+      <div class="tags"><span class="tag">焦慮症</span><span class="tag">疼痛管理</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">閱讀原文 →</a>
+    </div>
+<div class="paper-card top-pick">
+      <div class="pick-rank">#3</div>
+      <span class="paper-emoji">🗣️</span>
+      <span class="utility-badge utility-high">高實用性</span>
+      <h3>將音樂治療整合至腦中風後失語症常規言語復健之可行性：真實世界門診研究</h3>
+      <p class="journal">NeuroRehabilitation · Feasibility of Integrating Music Therapy into Routine Speech-Language Rehabilitation for Post-Stroke Aphasia: A Real-World Outpatient Study.</p>
+      <p class="summary">將結構化音樂治療融入常規言語治療在真實門診環境中完全可行，且合併組在語言表現上有更大進步趨勢，為未來劑量匹配的 RCT 奠定基礎。</p>
+      <div class="pico">
+      <div class="pico-item"><strong>P</strong> 腦中風後失語症門診患者</div>
+      <div class="pico-item"><strong>I</strong> 常規言語治療合併手冊化音樂治療協定</div>
+      <div class="pico-item"><strong>C</strong> 單純常規言語治療</div>
+      <div class="pico-item"><strong>O</strong> 語言表現（西方失語症量表）、焦慮狀態</div>
+    </div>
+      <p class="utility-reason">💡 解決了神經音樂治療從研究到臨床實務轉譯的「可行性」痛點，提供復健科跨團隊合作的實務範例。</p>
+      <div class="tags"><span class="tag">腦中風復健</span><span class="tag">神經音樂治療</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">閱讀原文 →</a>
+    </div>
+<div class="paper-card top-pick">
+      <div class="pick-rank">#4</div>
+      <span class="paper-emoji">💤</span>
+      <span class="utility-badge utility-mid">中實用性</span>
+      <h3>瑜伽休息術與音樂治療對 COVID-19 出院患者睡眠與心理健康之比較：三臂隨機對照試驗</h3>
+      <p class="journal">Annals of neurosciences · Yoga Nidra Versus Music Therapy for Sleep and Mental Well-being in Post-COVID-19 Hospitalised Patients: A Three-arm Randomised Controlled Trial.</p>
+      <p class="summary">在線音樂治療連續 30 天能顯著改善 COVID-19 出院患者的睡眠品質（PSQI），且在改善睡眠方面的效果優於瑜伽休息術。</p>
+      <div class="pico">
+      <div class="pico-item"><strong>P</strong> COVID-19 住院康復後出院的成年患者</div>
+      <div class="pico-item"><strong>I</strong> 每日 30 分鐘線上音樂治療（為期 30 天）</div>
+      <div class="pico-item"><strong>C</strong> 瑜伽休息術組、常規照護組</div>
+      <div class="pico-item"><strong>O</strong> 睡眠品質（PSQI）、整體健康與幸福感（PROMIS, WHO-5）</div>
+    </div>
+      <p class="utility-reason">💡 驗證了遠距音樂治療在後疫情時代的應用潛力，但為探索性 RCT，未來需更嚴謹的試驗設計。</p>
+      <div class="tags"><span class="tag">睡眠醫學</span><span class="tag">焦慮症</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">閱讀原文 →</a>
+    </div>
+<div class="paper-card top-pick">
+      <div class="pick-rank">#5</div>
+      <span class="paper-emoji">✍️</span>
+      <span class="utility-badge utility-mid">中實用性</span>
+      <h3>「這是我的聲音，這是我的故事」：成年癌症倖存者歌曲中表達的需求與挑戰之主題分析</h3>
+      <p class="journal">Journal of cancer survivorship : research and practice · &quot;This is my voice; this is my story&quot;: a thematic analysis of needs and challenges expressed in songs by adult cancer survivors.</p>
+      <p class="summary">透過歌曲創作，焦慮的癌症倖存者能有效表達與處理自我概念、人際關係及存在性需求，展現了音樂治療深層情緒加工的獨特價值。</p>
+      <div class="pico">
+      <div class="pico-item"><strong>P</strong> 伴隨焦慮症狀的成年癌症倖存者</div>
+      <div class="pico-item"><strong>I</strong> 音樂治療中的歌曲創作</div>
+      <div class="pico-item"><strong>C</strong> 無（質性描述性研究）</div>
+      <div class="pico-item"><strong>O</strong> 歌詞中反映的心理需求、挑戰與應對機制</div>
+    </div>
+      <p class="utility-reason">💡 深度闡述歌曲創作治療的內在運作機制，有助於腫瘤心理學與安寧團隊理解非藥物支持性照護的深層意義。</p>
+      <div class="tags"><span class="tag">歌曲創作治療</span><span class="tag">情緒調節</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">閱讀原文 →</a>
+    </div>
+<div class="paper-card top-pick">
+      <div class="pick-rank">#6</div>
+      <span class="paper-emoji">👨‍👩‍👧‍👦</span>
+      <span class="utility-badge utility-mid">中實用性</span>
+      <h3>繪製兒童與青少年癌症患者音樂治療中的家庭參與圖景：範圍性文獻回顧</h3>
+      <p class="journal">Global health action · Mapping family involvement in music therapy for children and adolescents with cancer: a scoping review.</p>
+      <p class="summary">家屬參與兒童腫瘤音樂治療的形式從旁觀到共同創作不等，互動為導向與家長主導的模式最能促進情感連結與家庭韌性。</p>
+      <div class="pico">
+      <div class="pico-item"><strong>P</strong> 兒童與青少年癌症患者及其家庭成員</div>
+      <div class="pico-item"><strong>I</strong> 包含家庭成員參與的音樂治療</div>
+      <div class="pico-item"><strong>C</strong> 無（範圍性文獻回顧）</div>
+      <div class="pico-item"><strong>O</strong> 焦慮、壓力、疼痛、情緒、生活品質與家庭互動</div>
+    </div>
+      <p class="utility-reason">💡 強調「以家庭為中心」的兒少腫瘤音樂治療實務框架，指導臨床治療師如何設計家屬參與環節。</p>
+      <div class="tags"><span class="tag">兒少治療</span><span class="tag">照顧者支持</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">閱讀原文 →</a>
+    </div>
+<div class="paper-card top-pick">
+      <div class="pick-rank">#7</div>
+      <span class="paper-emoji">🎧</span>
+      <span class="utility-badge utility-mid">中實用性</span>
+      <h3>不同介入措施對老年人孤獨感、社會支持與憂鬱症的比較效果：隨機對照試驗之網絡 Meta 分析</h3>
+      <p class="journal">Geriatric nursing (New York, N.Y.) · Comparative effects of different interventions on loneliness, social support, and depression in older adults: A network meta-analysis of randomized controlled trials.</p>
+      <p class="summary">在多種非藥物介入中，音樂治療在減輕老年人孤獨感方面呈現最大的效應量（SMD=-2.94），儘管整體證據確定性極低，但仍凸顯其巨大潛力。</p>
+      <div class="pico">
+      <div class="pico-item"><strong>P</strong> 社區或機構中的老年人</div>
+      <div class="pico-item"><strong>I</strong> 非藥物介入（含音樂治療、動物輔助治療、諮商等）</div>
+      <div class="pico-item"><strong>C</strong> 其他非藥物介入或常規照護</div>
+      <div class="pico-item"><strong>O</strong> 孤獨感、社會支持程度、憂鬱症狀</div>
+    </div>
+      <p class="utility-reason">💡 雖然統計學異質性高需謹慎解讀，但極大的點估計值為長照機構推展音樂治療提供了強而有力的談判籌碼。</p>
+      <div class="tags"><span class="tag">老年照護</span><span class="tag">憂鬱症</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">閱讀原文 →</a>
+    </div>
+<h2>📚 其他值得關注的文獻</h2>
+<div class="paper-card">
+      <span class="paper-emoji">💉</span>
+      <span class="utility-badge utility-low">低</span>
+      <h3>術前焦慮的心理介入：近期文獻回顧</h3>
+      <p class="journal">Journal of perioperative practice</p>
+      <p class="summary">回顧顯示虛擬實境、音樂治療、正念與認知行為療法能有效降低術前焦慮，但研究異質性高，未來需標準化量表與大規模 RCT。</p>
+      <div class="tags"><span class="tag">焦慮症</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">🎸</span>
+      <span class="utility-badge utility-low">低</span>
+      <h3>精神科服務使用者體驗以復原為導向的團體音樂治療：初步混合方法研究</h3>
+      <p class="journal">Journal of mental health (Abingdon, England)</p>
+      <p class="summary">雖然定量量表未達統計顯著，但質性訪談發現重度精神疾病患者認為團體音樂治療能帶來連結感、情緒表達與放鬆，有助復原。</p>
+      <div class="tags"><span class="tag">思覺失調症</span><span class="tag">團體音樂治療</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">🏥</span>
+      <span class="utility-badge utility-low">低</span>
+      <h3>兒童安寧緩和醫療中心身療法之效能網絡 Meta 分析</h3>
+      <p class="journal">Pain management nursing : official journal of the American Society of Pain Management Nurses</p>
+      <p class="summary">針對兒童安寧緩和照護的 43 篇研究顯示，催眠術在減輕疼痛與焦慮的排名最高，而音樂治療等介入則因信賴區間過寬而結論不明確。</p>
+      <div class="tags"><span class="tag">安寧緩和醫療</span><span class="tag">兒少治療</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">🥁</span>
+      <span class="utility-badge utility-low">低</span>
+      <h3>兒童節奏複製任務：心理測量學檢驗</h3>
+      <p class="journal">Behavior research methods</p>
+      <p class="summary">驗證了兒童節奏複製任務（含擴展變體）具有良好的內部一致性與部分測量不變性，支持其作為評估兒童節奏生產技能的可靠工具。</p>
+      <div class="tags"><span class="tag">神經科學</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<div class="paper-card">
+      <span class="paper-emoji">🛏️</span>
+      <span class="utility-badge utility-low">低</span>
+      <h3>振動聲學刺激對高血壓的影響：先導性交叉實驗研究</h3>
+      <p class="journal">Aging clinical and experimental research</p>
+      <p class="summary">40Hz 振動聲學刺激合併放鬆音樂，雖未達統計顯著，但在高血壓患者中觀察到收縮壓、舒張壓與壓力知覺下降的趨勢，顯示其臨床可行性。</p>
+      <div class="tags"><span class="tag">生理機制</span></div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/[object Object]/" class="read-more" target="_blank" rel="noopener">PubMed →</a>
+    </div>
+<h2>📊 主題分布</h2>
+<div class="topic-row">
+      <span class="topic-label">失智症</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:33%"></div></div>
+      <span class="topic-count">1</span>
+    </div>
+<div class="topic-row">
+      <span class="topic-label">焦慮症</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:100%"></div></div>
+      <span class="topic-count">3</span>
+    </div>
+<div class="topic-row">
+      <span class="topic-label">腦中風復健</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:33%"></div></div>
+      <span class="topic-count">1</span>
+    </div>
+<div class="topic-row">
+      <span class="topic-label">睡眠醫學</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:33%"></div></div>
+      <span class="topic-count">1</span>
+    </div>
+<div class="topic-row">
+      <span class="topic-label">兒少治療</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:67%"></div></div>
+      <span class="topic-count">2</span>
+    </div>
+<div class="topic-row">
+      <span class="topic-label">老年照護</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:33%"></div></div>
+      <span class="topic-count">1</span>
+    </div>
+<div class="topic-row">
+      <span class="topic-label">憂鬱症</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:33%"></div></div>
+      <span class="topic-count">1</span>
+    </div>
+<div class="topic-row">
+      <span class="topic-label">疼痛管理</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:33%"></div></div>
+      <span class="topic-count">1</span>
+    </div>
+<div class="topic-row">
+      <span class="topic-label">安寧緩和醫療</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:33%"></div></div>
+      <span class="topic-count">1</span>
+    </div>
+<div class="topic-row">
+      <span class="topic-label">神經科學</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:33%"></div></div>
+      <span class="topic-count">1</span>
+    </div>
+<div class="topic-row">
+      <span class="topic-label">生理機制</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:33%"></div></div>
+      <span class="topic-count">1</span>
+    </div>
+<div class="topic-row">
+      <span class="topic-label">思覺失調症</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:33%"></div></div>
+      <span class="topic-count">1</span>
+    </div>
+<div class="topic-row">
+      <span class="topic-label">情緒調節</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:33%"></div></div>
+      <span class="topic-count">1</span>
+    </div>
+<div class="topic-row">
+      <span class="topic-label">照顧者支持</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:33%"></div></div>
+      <span class="topic-count">1</span>
+    </div>
+<div class="topic-row">
+      <span class="topic-label">神經音樂治療</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:33%"></div></div>
+      <span class="topic-count">1</span>
+    </div>
+<div class="topic-row">
+      <span class="topic-label">歌曲創作治療</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:33%"></div></div>
+      <span class="topic-count">1</span>
+    </div>
+<div class="topic-row">
+      <span class="topic-label">團體音樂治療</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:33%"></div></div>
+      <span class="topic-count">1</span>
+    </div>
+<div class="topic-row">
+      <span class="topic-label">生活品質</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:33%"></div></div>
+      <span class="topic-count">1</span>
+    </div>
+<h2>🏷️ 關鍵字</h2>
+<div class="keywords"><span class="keyword">音樂治療</span><span class="keyword">網絡 Meta 分析</span><span class="keyword">隨機對照試驗</span><span class="keyword">失智症</span><span class="keyword">腦中風復健</span><span class="keyword">睡眠醫學</span><span class="keyword">焦慮緩解</span></div>
+<div class="footer">
+  <div class="footer-links">
+    <a href="https://www.leepsyclinic.com/" target="_blank" rel="noopener">🏥 李政洋身心診所首頁</a>
+    <a href="https://blog.leepsyclinic.com/" target="_blank" rel="noopener">📬 訂閱電子報</a>
+    <a href="https://buymeacoffee.com/CYlee" target="_blank" rel="noopener">☕ Buy Me a Coffee</a>
+  </div>
+  <p class="footer-info">資料來源：PubMed · 分析模型：GLM-5-Turbo · <a href="https://github.com/u8901006/music-therapy">GitHub</a></p>
+</div>
+</div>
+</body>
+</html>
