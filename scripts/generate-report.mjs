@@ -3,8 +3,8 @@
 import { writeFileSync, readFileSync, mkdirSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 
-const API_BASE = process.env.ZHIPU_API_BASE || 'https://open.bigmodel.cn/api/coding/paas/v4';
-const MODELS = ['glm-5-turbo', 'glm-4.7', 'glm-4.7-flash'];
+const API_BASE = process.env.NVIDIA_API_BASE || 'https://integrate.api.nvidia.com/v1';
+const MODELS = ['nvidia/nemotron-3-super-120b-a12b', 'nvidia/nemotron-3-nano-30b-a3b'];
 
 const SYSTEM_PROMPT = `你是音樂治療領域的資深研究員與科學傳播者。你的任務是：
 1. 從提供的醫學文獻中，篩選出最具臨床意義與研究價值的音樂治療相關論文
@@ -42,7 +42,7 @@ function escapeHtml(str) {
 
 function parseArgs() {
   const args = process.argv.slice(2);
-  const opts = { input: '', output: '', apiKey: process.env.ZHIPU_API_KEY || '' };
+  const opts = { input: '', output: '', apiKey: process.env.NVIDIA_API_KEY || '' };
   for (let i = 0; i < args.length; i++) {
     if (args[i] === '--input' && args[i + 1]) opts.input = args[++i];
     else if (args[i] === '--output' && args[i + 1]) opts.output = args[++i];
@@ -162,9 +162,10 @@ ${papersText}
               { role: 'system', content: SYSTEM_PROMPT },
               { role: 'user', content: prompt },
             ],
-            temperature: 0.3,
-            top_p: 0.9,
-            max_tokens: 50000,
+            temperature: 1.0,
+            top_p: 0.95,
+            max_tokens: 16384,
+            chat_template_kwargs: { enable_thinking: false },
           }),
           signal: AbortSignal.timeout(480000),
         });
@@ -284,7 +285,7 @@ function generateHtml(analysis) {
 <div class="container">
 <h1>🎵 Music Therapy Research · 音樂治療研究文獻日報</h1>
 <div class="divider"></div>
-<div class="meta">📅 ${dateDisplay} &nbsp;|&nbsp; 📊 ${totalCount} 篇文獻 &nbsp;|&nbsp; Powered by PubMed + GLM-5-Turbo</div>
+<div class="meta">📅 ${dateDisplay} &nbsp;|&nbsp; 📊 ${totalCount} 篇文獻 &nbsp;|&nbsp; Powered by PubMed + nvidia/nemotron-3-super-120b-a12b</div>
 <h2>📋 今日文獻趨勢</h2>
 <p class="market-summary">${summary}</p>
 ${topPicksHtml ? `<h2>⭐ 今日精選 TOP Picks</h2>\n${topPicksHtml}` : ''}
@@ -297,7 +298,7 @@ ${keywordsHtml ? `<h2>🏷️ 關鍵字</h2>\n<div class="keywords">${keywordsHt
     <a href="https://blog.leepsyclinic.com/" target="_blank" rel="noopener">📬 訂閱電子報</a>
     <a href="https://buymeacoffee.com/CYlee" target="_blank" rel="noopener">☕ Buy Me a Coffee</a>
   </div>
-  <p class="footer-info">資料來源：PubMed · 分析模型：GLM-5-Turbo · <a href="https://github.com/u8901006/music-therapy">GitHub</a></p>
+  <p class="footer-info">資料來源：PubMed · 分析模型：nvidia/nemotron-3-super-120b-a12b · <a href="https://github.com/u8901006/music-therapy">GitHub</a></p>
 </div>
 </div>
 </body>
@@ -556,11 +557,6 @@ h2 {
 
 async function main() {
   const opts = parseArgs();
-  if (!opts.apiKey) {
-    console.error('[ERROR] No API key. Set ZHIPU_API_KEY env var or use --api-key');
-    process.exit(1);
-  }
-
   const papersData = loadPapers(opts.input);
 
   let analysis;
@@ -576,6 +572,10 @@ async function main() {
       topic_distribution: {},
     };
   } else {
+    if (!opts.apiKey) {
+      console.error('[ERROR] Missing NVIDIA_API_KEY repository secret');
+      process.exit(1);
+    }
     analysis = await analyzePapers(opts.apiKey, papersData);
   }
 
