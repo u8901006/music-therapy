@@ -560,7 +560,8 @@ async function main() {
   const papersData = loadPapers(opts.input);
 
   let analysis;
-  if (!papersData || !papersData.papers || !papersData.papers.length) {
+  const paperCount = Number(papersData?.count ?? papersData?.papers?.length ?? 0);
+  if (paperCount === 0 || !papersData?.papers?.length) {
     console.error('[WARN] No papers found, generating empty report');
     const dateStr = new Date(Date.now() + 8 * 3600000).toISOString().slice(0, 10);
     analysis = {
