@@ -62,41 +62,14 @@ jobs:
             echo "No papers found, will generate empty report"
           fi
 
-      - name: Configure NVIDIA Nemotron backend
-        run: |
-          python3 - <<'PY'
-          from pathlib import Path
-          import re
-
-          p = Path("scripts/generate-report.mjs")
-          s = p.read_text(encoding="utf-8")
-          s = s.replace("https://open.bigmodel.cn/api/coding/paas/v4", "https://integrate.api.nvidia.com/v1")
-          for old, new in [
-              ("glm-5-turbo", "nvidia/nemotron-3-super-120b-a12b"),
-              ("GLM-5-Turbo", "nvidia/nemotron-3-super-120b-a12b"),
-              ("glm-4.7-flash", "nvidia/nemotron-3-nano-30b-a3b"),
-              ("GLM-4.7-Flash", "nvidia/nemotron-3-nano-30b-a3b"),
-              ("glm-4.7", "nvidia/nemotron-3-nano-30b-a3b"),
-              ("GLM-4.7", "nvidia/nemotron-3-nano-30b-a3b"),
-              ("ZHIPU_API_KEY", "NVIDIA_API_KEY"),
-              ("ZHIPU_API_BASE", "NVIDIA_API_BASE"),
-          ]:
-              s = s.replace(old, new)
-          s = re.sub(r"const MAX_TOKENS = [0-9_]+;", "const MAX_TOKENS = 16384;", s)
-          s = re.sub(r"max_tokens:\s*[0-9_]+,", "max_tokens: 16384,", s)
-          s = s.replace("temperature: 0.3", "temperature: 1.0")
-          s = s.replace("top_p: 0.9", "top_p: 0.95")
-          marker = "max_tokens: 16384,"
-          if marker in s and "chat_template_kwargs" not in s:
-              s = s.replace(marker, marker + "\n            chat_template_kwargs: { enable_thinking: false },", 1)
-          p.write_text(s, encoding="utf-8")
-          PY
-
       - name: Generate report with NVIDIA Nemotron
         env:
           NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
         run: |
-          test -n "$NVIDIA_API_KEY" || { echo "::error::Missing NVIDIA_API_KEY repository secret"; exit 1; }
+          if [ "${{ steps.papers.outputs.count }}" != "0" ] && [ -z "$NVIDIA_API_KEY" ]; then
+            echo "::error::Missing NVIDIA_API_KEY repository secret"
+            exit 1
+          fi
           node scripts/generate-report.mjs \
             --input papers.json \
             --output docs/music-therapy-${{ steps.date.outputs.target }}.html
