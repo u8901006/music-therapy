@@ -16,7 +16,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 35
     steps:
       - name: Checkout
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5  # v4.3.1
@@ -37,12 +37,12 @@ jobs:
         id: date
         run: |
           if [ -n "${{ github.event.inputs.date }}" ]; then
-            echo "target=${{ github.event.inputs.date }}" >> $GITHUB_OUTPUT
+            echo "target=${{ github.event.inputs.date }}" >> "$GITHUB_OUTPUT"
           else
             TARGET=$(TZ=Asia/Taipei date +%Y-%m-%d)
-            echo "target=$TARGET" >> $GITHUB_OUTPUT
+            echo "target=$TARGET" >> "$GITHUB_OUTPUT"
           fi
-          echo "Date: $(cat $GITHUB_OUTPUT | grep target | cut -d= -f2)"
+          echo "Date: $(grep target "$GITHUB_OUTPUT" | cut -d= -f2)"
 
       - name: Fetch papers from PubMed
         run: node scripts/fetch-papers.mjs --days 7 --max-papers 40 --output papers.json
@@ -53,11 +53,11 @@ jobs:
         id: papers
         run: |
           if [ -f papers.json ] && grep -q '"count"' papers.json; then
-            COUNT=$(node -e "const d=JSON.parse(require('fs').readFileSync('papers.json','utf8'));console.log(d.count)")
-            echo "count=$COUNT" >> $GITHUB_OUTPUT
+            COUNT=$(node -e "const d=JSON.parse(require('fs').readFileSync('papers.json','utf8'));console.log(d.count||0)")
+            echo "count=$COUNT" >> "$GITHUB_OUTPUT"
             echo "Papers found: $COUNT"
           else
-            echo "count=0" >> $GITHUB_OUTPUT
+            echo "count=0" >> "$GITHUB_OUTPUT"
             echo '{"date":"'"${{ steps.date.outputs.target }}"'","count":0,"papers":[]}' > papers.json
             echo "No papers found, will generate empty report"
           fi
@@ -82,7 +82,6 @@ jobs:
               ("ZHIPU_API_BASE", "NVIDIA_API_BASE"),
           ]:
               s = s.replace(old, new)
-          s = re.sub(r"const MAX_TOKENS = [0-9_]+;", "const MAX_TOKENS = 16384;", s)
           s = re.sub(r"max_tokens:\s*[0-9_]+,", "max_tokens: 16384,", s)
           s = s.replace("temperature: 0.3", "temperature: 1.0")
           s = s.replace("top_p: 0.9", "top_p: 0.95")
@@ -96,11 +95,15 @@ jobs:
         env:
           NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
         run: |
-          test -n "$NVIDIA_API_KEY" || { echo "::error::Missing NVIDIA_API_KEY repository secret"; exit 1; }
+          if [ "${{ steps.papers.outputs.count }}" = "0" ]; then
+            export NVIDIA_API_KEY="${NVIDIA_API_KEY:-not-needed-for-empty-report}"
+          else
+            test -n "$NVIDIA_API_KEY" || { echo "::error::Missing NVIDIA_API_KEY repository secret"; exit 1; }
+          fi
           node scripts/generate-report.mjs \
             --input papers.json \
             --output docs/music-therapy-${{ steps.date.outputs.target }}.html
-        timeout-minutes: 8
+        timeout-minutes: 20
 
       - name: Generate index page
         run: node scripts/generate-index.mjs
@@ -116,8 +119,9 @@ jobs:
           git push
 
       - name: Summary
+        if: always()
         run: |
-          echo "### 🎵 Music Therapy Daily Report" >> $GITHUB_STEP_SUMMARY
-          echo "**Date:** ${{ steps.date.outputs.target }}" >> $GITHUB_STEP_SUMMARY
-          echo "**Papers analyzed:** ${{ steps.papers.outputs.count }}" >> $GITHUB_STEP_SUMMARY
-          echo "**Report:** [music-therapy-${{ steps.date.outputs.target }}.html](https://u8901006.github.io/music-therapy/music-therapy-${{ steps.date.outputs.target }}.html)" >> $GITHUB_STEP_SUMMARY
+          echo "### 🎵 Music Therapy Daily Report" >> "$GITHUB_STEP_SUMMARY"
+          echo "**Date:** ${{ steps.date.outputs.target }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "**Papers analyzed:** ${{ steps.papers.outputs.count || '0' }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "**Report:** [music-therapy-${{ steps.date.outputs.target }}.html](https://u8901006.github.io/music-therapy/music-therapy-${{ steps.date.outputs.target }}.html)" >> "$GITHUB_STEP_SUMMARY"
